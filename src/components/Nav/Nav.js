@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { gsap } from "gsap"
 import styled from 'styled-components'
 
 const NavMenu = styled.nav`
