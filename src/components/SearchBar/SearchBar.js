@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
-const SearchBar = () => {
+const SearchBar = ({ pullSearch }) => {
   const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    pullSearch(search)
+  }, [search])
+
  return (
    <div>
      <form>
