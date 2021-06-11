@@ -28,18 +28,21 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    if (searchResults.length > 1) {
     if (characters.length) {
-    const charFind = characters.filter(char => {
-      return char.name.toLowerCase().includes(searchResults) 
-  })
+      const charFind = characters.filter(char => {
+        return char.name.toLowerCase().includes(searchResults) 
+    })
     setFoundChars(charFind)
   }
-  if (episodes.length) {
-    const epFind = episodes.filter(ep => {
-      return ep.name.toLowerCase().includes(searchResults)
-    })
+    if (episodes.length) {
+      const epFind = episodes.filter(ep => {
+        return ep.name.toLowerCase().includes(searchResults)
+      })
+    setFoundEpisodes(epFind)
   }
-  }, [searchResults])
+}
+  }, [searchResults, characters, episodes])
 
 
   const pullSearch = (search) => {
@@ -67,15 +70,15 @@ const App = () => {
           render={() => (
             !error ?
             <>
-            <SearchBar 
-            pullSearch={pullSearch}
-            />
-            <div className='display-grid'>
-            <Found 
-            foundChars={foundChars}
-            foundEpisodes={foundEpisodes}
-            />
-            </div>
+              <SearchBar 
+              pullSearch={pullSearch}
+              />
+              <div className='display-grid'>
+                <Found 
+                  foundChars={foundChars}
+                  foundEpisodes={foundEpisodes}
+                />
+              </div>
             </> : theBadNews()
           )} />
         <Route exact path='/characters'

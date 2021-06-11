@@ -13,6 +13,7 @@ const Found = ({ foundChars, foundEpisodes }) => {
     })
   } 
   if (foundEpisodes.length >= 1) {
+    console.log(foundEpisodes.length)
     return foundEpisodes.map(episode => {
       let splitEpisode = episode.episode.split('')
       let episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`

@@ -70,8 +70,10 @@ const Nav = () => {
   const [tl] = useState(gsap.timeline({paused: true}))
 
   useEffect(() => {
-  tl.to('.top', .5, {y:'-9px', rotationZ: '90', x: '30px', y: '9px'}, 'open')
-  .to('.bottom', .5, {y: '9px', rotationZ: '-90', x: '-30px', y: '-9px'}, 'open')
+  tl.to('.top', .5, {y:'-9px', rotationZ: '90', x: '30px'}, 'open')
+  .to('.top', .1, { y: '9px'})
+  .to('.bottom', .5, {y: '9px', rotationZ: '-90', x: '-30px'}, 'open')
+  .to('.bottom', .1, { y: '-9px'})
   .to('.mid', .2, {opacity: 0})
   .to('.burger-container', .5, {borderRadius: '10px', width: '10%', height: '95%'})
   .to('.top', .3, {rotationZ: '45'})
