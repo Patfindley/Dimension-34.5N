@@ -79,11 +79,11 @@ const Nav = () => {
   .to('.top', .3, {rotationZ: '45'})
   .to('.bottom', .3, {x: '30px', rotationZ: '135'})
   .to('.nav-open', .2, {opacity: 1, pointerEvents: 'auto'})
-  }, [])
+  }, [tl])
 
   useEffect(() => {
     tl.reversed() ? tl.play() : tl.reverse()
-  }, [burgerActive])
+  }, [burgerActive, tl])
 
   return (
     <NavMenu>

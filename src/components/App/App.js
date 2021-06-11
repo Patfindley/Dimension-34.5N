@@ -29,10 +29,10 @@ const App = () => {
 
   useEffect(() => {
     if (searchResults.length > 1) {
-    if (characters.length) {
-      const charFind = characters.filter(char => {
-        return char.name.toLowerCase().includes(searchResults) 
-    })
+      if (characters.length) {
+        const charFind = characters?.filter(char => {
+          return char.name.toLowerCase().includes(searchResults) 
+      })
     setFoundChars(charFind)
   }
     if (episodes.length) {
@@ -73,24 +73,22 @@ const App = () => {
               <SearchBar 
               pullSearch={pullSearch}
               />
-              <div className='display-grid'>
                 <Found 
                   foundChars={foundChars}
                   foundEpisodes={foundEpisodes}
                 />
-              </div>
             </> : theBadNews()
           )} />
         <Route exact path='/characters'
         render={() => ( 
             !error ?
             <div className='display-grid'>
-          <Characters
-          characters={characters}
-          /> 
+              <Characters
+              characters={characters}
+              /> 
           </div>: theBadNews()
           )} />
-          <Route 
+          <Route exact path='/episodes'
             render={() => (
               !error ? 
               <div className='display-grid'>

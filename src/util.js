@@ -2,7 +2,7 @@ const rickApi = 'https://rickandmortyapi.com/api'
 
 export const portalGun = () => {
 
-  const characterRetreiverRay = fetch(`${rickApi}/character`)
+  const characterRetreiverRay = fetch(`${rickApi}/character`, {mode: 'cors'})
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -12,7 +12,7 @@ export const portalGun = () => {
     })
   
 
-  const episodeRetreiverRay = fetch(`${rickApi}/episode`)
+  const episodeRetreiverRay = fetch(`${rickApi}/episode`, {mode: 'cors'})
     .then(response => {
       if (response.ok) {
         return response.json()
@@ -21,7 +21,7 @@ export const portalGun = () => {
       }
     })
 
-  const locationRetreiverRay = fetch(`${rickApi}/location`)
+  const locationRetreiverRay = fetch(`${rickApi}/location`, {mode: 'cors'})
     .then(response => {
       if (response.ok) {
         return response.json()
