@@ -1,41 +1,67 @@
 import styled from 'styled-components'
 import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
+import television from '../../assets/television.svg'
 
+const EpisodeInfo = styled.div`
+  // border: 1px solid red;
+  width: 350px;
+  height: 390px;
+  z-index: 2;
+`
 const BlankRickon = styled.img`
-  visibility: visible;
-  position: relative;
-  top: 65px;
-  right: -243px;
-  width: 16%;
   opacity: 1;
+  position: relative;
+  top: 157px;
+  right: -169px;
+  width: 16%;
   transition: filter .5s;
+  z-index: 2;
 `
 const ColorRickon = styled.img`
-  visibility: hidden;
   opacity: 0;
   position: relative;
-  top: 65px;
-  right: -185px;
+  top: 157px;
+  right: -225px;
   width: 16%;
-  opacity: 1;
   transition: filter .5s;
+  z-index: 2;
+`
+const Tele = styled.img`
+position: relative;
+width: 343px;
+// right: 63px;
+z-index: 1;
+`
+const EpInfoContainer = styled.div`
+position: relative;
+top: -259px;
+right: -43px;
+text-align: left;
+font-family: 'Press Start 2P', cursive;
+// border: 1px solid red;
+width: 205px;
+z-index: 0;
 `
 
 const Episodes = ({ episodes, favoriteInfo }) => {
   if (episodes?.length) {
     return episodes?.map(episode => {
-      let splitEpisode = episode.episode.split('')
-      let episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
+      const splitEpisode = episode.episode.split('')
+      const episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
+      const nameClass = `color-icon${episode.id}`
       return (
-        <div className='episode-info' key={episode.id} id={episode.id}>
+        <EpisodeInfo className='episode-info' key={episode.id} id={episode.id}>
+          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' />
           <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
-          onClick={event => favoriteInfo(event)}/>
-          <ColorRickon className='color-icon' src={colorRick} alt='color rick icon' />
-          <h1>{episode.name}</h1>
-          <h3>{episode.air_date}</h3>
-          <h3>{episodeNumber}</h3> 
-        </div>
+            onClick={event => favoriteInfo(event)}/>
+          <Tele className='tele' src={television} alt='retro television' />
+          <EpInfoContainer className='ep-info-container'>
+            <h3>{episode.name}</h3>
+            <h4>{episode.air_date}</h4>
+            <h6>{episodeNumber}</h6> 
+          </EpInfoContainer>
+        </EpisodeInfo>
         )
     })
   }

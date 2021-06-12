@@ -24,6 +24,5 @@ body {
 
 .nav-li:hover {
   color: white;
-  /* text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18, -1px 0px 15px rgba(163,220,244,0); */
   text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #A3DCF4, 0 0 30px #A3DCF4, 0 0 40px #A3DCF4, 0 0 55px #A3DCF4, 0 0 75px #A3DCF4, -1px 0px 15px rgba(163,220,244,0);
 }

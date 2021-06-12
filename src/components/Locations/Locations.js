@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
+import portal from '../../assets/portal.png'
+
+const Portal = styled.img``
 
 const BlankRickon = styled.img`
   visibility: visible;
@@ -30,6 +33,7 @@ if (locations?.length) {
         <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
           onClick={event => favoriteInfo(event)}/>
           <ColorRickon className='color-icon' src={colorRick} alt='color rick icon' />
+          <Portal className='portal' src={portal} alt='a Portal! But where to?' />
         <h1>{loc.name}</h1>
         <h3>loc.type</h3>
         <h4>loc.dimension</h4>

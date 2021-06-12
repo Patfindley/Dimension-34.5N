@@ -62,21 +62,28 @@ const App = () => {
 
   const favoriteInfo = (e) => {
     if (e.target.closest('.character-info')) {
+      console.log('hi char');
       let targetDiv = e.target.closest('div').id
       let targetBlank = e.target.closest('.blank-icon')
       let charToFav = characters.find(char => char.id === Number(targetDiv))
       setFavChars([...favChars, charToFav])
       gsap.to(targetBlank, .5, {opacity: 0, rotateZ: 720})
       gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
-
     }
     if (e.target.closest('.episode-info')) {
+    // if (e.target.closest('.ep-info-container')) {
+      console.log('hi episode')
       let targetDiv = e.target.closest('div').id
+      let targetBlank = e.target.closest('.blank-icon')
       let epToFav = episodes.find(ep => ep.id === Number(targetDiv))
       console.log(targetDiv, 'target div', epToFav, '<<ep to fav')
       setFavEpisodes([...favEpisodes, epToFav])
+      gsap.to(targetBlank, .5, {opacity: 0, rotateZ: 720})
+      gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
+      console.log(targetBlank, ' t blank');
     }
     if (e.target.closest('.location-info')) {
+      console.log('hi loc');
       let targetDiv = e.target.closest('div').id
       let locToFav = locations.find(ep => ep.id === Number(targetDiv))
       console.log(targetDiv, 'target div', locToFav, '<<loc to fav')
