@@ -1,6 +1,28 @@
+import styled from 'styled-components'
+import blankRick from '../../assets/blank-rick-icon.png';
+import colorRick from '../../assets/fill-rick-icon.png';
 
+const BlankRickon = styled.img`
+  visibility: visible;
+  position: relative;
+  top: 66px;
+  left: 243px;
+  width: 16%;
+  opacity: 1;
+  transition: filter .5s;
+`
+const ColorRickon = styled.img`
+  visibility: hidden;
+  opacity: 0;
+  position: relative;
+  top: 66px;
+  right: -185px;
+  width: 16%;
+  opacity: 1;
+  transition: filter .5s;
+`
 
-const Found = ({ foundChars, foundEpisodes }) => {
+const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
 
   const displayCharacters = () => {
     if (foundChars?.length >= 1) {
@@ -8,6 +30,9 @@ const Found = ({ foundChars, foundEpisodes }) => {
        console.log(char, 'hi')
         return (
           <div className='character-info' key={char.id}>
+            <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
+              onClick={event => favoriteInfo(event)}/>
+            <ColorRickon className='color-icon' src={colorRick} alt='color rick icon' />
             <img src={char.image} alt={char.name} />
             <h1>{char.name}</h1>
           </div>
@@ -17,8 +42,8 @@ const Found = ({ foundChars, foundEpisodes }) => {
   }
   const displayEpisodes = () => {
     if (foundEpisodes?.length >= 1) {
-      console.log(foundEpisodes.length)
       return foundEpisodes?.map(episode => {
+        console.log(episode)
         let splitEpisode = episode.episode.split('')
         let episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
         return (

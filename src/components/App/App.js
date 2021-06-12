@@ -12,6 +12,7 @@ import './App.css';
 const App = () => {
   const [characters, setCharacters] = useState('')
   const [foundChars, setFoundChars] = useState('')
+  const [favChars, setFavChars] = useState('')
   const [episodes, setEpisodes] = useState('')
   const [foundEpisodes, setFoundEpisodes] = useState('')
   const [locations, setLocations] = useState('')
@@ -45,9 +46,17 @@ const App = () => {
 }
   }, [searchResults, characters, episodes])
 
-
   const pullSearch = (search) => {
     setSearchResults(search)
+  }
+
+  const favoriteInfo = (e) => {
+    if (e.target.closest('.character-info')) {
+      let target = e.target.closest('div').id
+      let charToFav = characters.find(char => char.id === Number(target))
+      setFavChars({...favChars, charToFav})
+    }
+    console.log(favChars)
   }
 
   const theBadNews = () => {
@@ -77,6 +86,7 @@ const App = () => {
                 <Found 
                   foundChars={foundChars}
                   foundEpisodes={foundEpisodes}
+                  favoriteInfo={favoriteInfo}
                 />
             </> : theBadNews()
           )} />
@@ -86,6 +96,7 @@ const App = () => {
             <div className='display-grid'>
               <Characters
               characters={characters}
+              favoriteInfo={favoriteInfo}
               /> 
           </div> : theBadNews()
           )} />

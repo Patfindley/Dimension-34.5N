@@ -17,3 +17,7 @@ body {
   width: 70%;
   height: 100%;
 }
+
+.blank-icon:hover {
+    filter: invert(93%) sepia(92%) saturate(7451%) hue-rotate(168deg) brightness(100%) contrast(91%);
+}
