@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import { gsap } from "gsap"
 import { portalGun } from '../../util'
 import Nav from '../Nav/Nav'
 import SearchBar from '../SearchBar/SearchBar'
@@ -12,11 +13,13 @@ import './App.css';
 const App = () => {
   const [characters, setCharacters] = useState('')
   const [foundChars, setFoundChars] = useState('')
-  const [favChars, setFavChars] = useState([])
+  const [favChars, setFavChars] = useState('')
   const [episodes, setEpisodes] = useState('')
   const [foundEpisodes, setFoundEpisodes] = useState('')
+  const [favEpisodes, setFavEpisodes] = useState('')
   const [locations, setLocations] = useState('')
   const [foundLocations, setFoundLocations] = useState('')
+  const [favLocations, setFavLocations] = useState('')
   const [searchResults, setSearchResults] = useState('')
   const [error, setError] = useState('')
 
@@ -59,12 +62,28 @@ const App = () => {
 
   const favoriteInfo = (e) => {
     if (e.target.closest('.character-info')) {
-      let target = e.target.closest('div').id
-      let charToFav = characters.find(char => char.id === Number(target))
-      console.log(target, 'target', charToFav, '<<char to fav')
+      let targetDiv = e.target.closest('div').id
+      let targetBlank = e.target.closest('.blank-icon')
+      let targetColor = e.target.closest('.color-icon')
+      let charToFav = characters.find(char => char.id === Number(targetDiv))
       setFavChars([...favChars, charToFav])
+      console.log(targetBlank, 'targetBlank', targetColor, 'targetColor');
+      gsap.to(targetBlank, .5, {visibility: 'hidden', rotateX: 720})
+      gsap.to(targetColor, .5, {visibility: 'visible', rotateX: 720})
+
     }
-    console.log(favChars, 'fav chars')
+    if (e.target.closest('.episode-info')) {
+      let targetDiv = e.target.closest('div').id
+      let epToFav = episodes.find(ep => ep.id === Number(targetDiv))
+      console.log(targetDiv, 'target div', epToFav, '<<ep to fav')
+      setFavEpisodes([...favEpisodes, epToFav])
+    }
+    if (e.target.closest('.location-info')) {
+      let targetDiv = e.target.closest('div').id
+      let locToFav = locations.find(ep => ep.id === Number(targetDiv))
+      console.log(targetDiv, 'target div', locToFav, '<<loc to fav')
+      setFavLocations([...favLocations, locToFav])
+    }
   }
 
   const theBadNews = () => {
@@ -115,6 +134,7 @@ const App = () => {
               <div className='display-grid'>
                 <Episodes 
                   episodes={episodes}
+                  favoriteInfo={favoriteInfo}
                 />
               </div> : theBadNews()
             )} />
@@ -124,6 +144,7 @@ const App = () => {
               <div className='display-grid'>
                 <Locations 
                   locations={locations}
+                  favoriteInfo={favoriteInfo}
                 />
               </div> : theBadNews()
             )}

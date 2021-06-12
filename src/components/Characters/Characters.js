@@ -7,7 +7,7 @@ import colorRick from '../../assets/fill-rick-icon.png';
 const BlankRickon = styled.img`
   visibility: visible;
   position: relative;
-  top: -418px;
+  top: 65px;
   right: -243px;
   width: 16%;
   opacity: 1;
@@ -17,7 +17,7 @@ const ColorRickon = styled.img`
   visibility: hidden;
   opacity: 0;
   position: relative;
-  top: -418px;
+  top: 65px;
   right: -185px;
   width: 16%;
   opacity: 1;
@@ -26,13 +26,9 @@ const ColorRickon = styled.img`
 
 const Characters = ({ characters, favoriteInfo }) => {
 
-  // const handleClick = (e) => {
-  //   favoriteInfo(e)
-  // }
 
   if (characters?.length) {
     return characters?.map(char => {
-      // console.log(char.id)
       return (
         <div className='character-info' key={char.id} id={Number(char.id)}>
           <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
