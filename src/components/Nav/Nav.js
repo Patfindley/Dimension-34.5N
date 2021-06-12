@@ -32,8 +32,11 @@ const Patty = styled.span`
   border-radius: 10px;
   margin: 5px 20px;
   transition: background-color .5s;
+  transition: box-shadow .5s;
     ${BurgerContainer}:hover & {
       background-color: #A3DCF4;
+      box-shadow: 0px 0px 6px 2px rgba(182,227,246,0.49)
+
     }
 `
 const NavOpen = styled.div`
@@ -62,6 +65,9 @@ const Linky = styled(Link)`
   text-decoration: none;
   // color: #A3DCF4;
   color: black;
+  // ${LI}:hover & {
+  //   background-color: #A3DCF4;
+  //   box-shadow: 0px 0px 6px 2px rgba(000,000,000,0.49)
   `
 
 const Nav = () => {

@@ -40,10 +40,10 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
       })
     }
   }
+
   const displayEpisodes = () => {
     if (foundEpisodes?.length >= 1) {
       return foundEpisodes?.map(episode => {
-        console.log(episode)
         let splitEpisode = episode.episode.split('')
         let episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
         return (
@@ -57,10 +57,28 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
     }
   }
 
+  const displayLocations = () => {
+    if (foundLocations?.length) {
+      return foundLocations?.map(loc => {
+        console.log(loc)
+
+        return (
+          <div className='location-info' key={loc.id}>
+            <h1>{loc.name}</h1>
+            <h3>loc.type</h3>
+            <h4>loc.dimension</h4>
+            <h4>loc.residents</h4>
+          </div>
+        )
+      })
+    }
+  }
+
   return (
     <div className='display-found display-grid'>
       {displayCharacters()}
       {displayEpisodes()}
+      {displayLocations()}
       <h1>nada</h1>
     </div>
   )

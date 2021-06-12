@@ -16,6 +16,7 @@ const App = () => {
   const [episodes, setEpisodes] = useState('')
   const [foundEpisodes, setFoundEpisodes] = useState('')
   const [locations, setLocations] = useState('')
+  const [foundLocations, setFoundLocations] = useState('')
   const [searchResults, setSearchResults] = useState('')
   const [error, setError] = useState('')
 
@@ -42,6 +43,13 @@ const App = () => {
         return ep.name.toLowerCase().includes(searchResults)
       })
     setFoundEpisodes(epFind)
+  }
+    if (locations.length) {
+      const locFind = locations.filter(loc => {
+        return loc.name.toLowerCase().includes(searchResults)
+      })
+    setFoundLocations(locFind)
+    console.log(foundLocations)
   }
 }
   }, [searchResults, characters, episodes])
@@ -86,6 +94,7 @@ const App = () => {
                 <Found 
                   foundChars={foundChars}
                   foundEpisodes={foundEpisodes}
+                  foundLocations={foundLocations}
                   favoriteInfo={favoriteInfo}
                 />
             </> : theBadNews()
