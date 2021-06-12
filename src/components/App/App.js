@@ -64,12 +64,10 @@ const App = () => {
     if (e.target.closest('.character-info')) {
       let targetDiv = e.target.closest('div').id
       let targetBlank = e.target.closest('.blank-icon')
-      let targetColor = e.target.closest('.color-icon')
       let charToFav = characters.find(char => char.id === Number(targetDiv))
       setFavChars([...favChars, charToFav])
-      console.log(targetBlank, 'targetBlank', targetColor, 'targetColor');
-      gsap.to(targetBlank, .5, {visibility: 'hidden', rotateX: 720})
-      gsap.to(targetColor, .5, {visibility: 'visible', rotateX: 720})
+      gsap.to(targetBlank, .5, {opacity: 0, rotateZ: 720})
+      gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
 
     }
     if (e.target.closest('.episode-info')) {
