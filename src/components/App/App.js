@@ -6,6 +6,7 @@ import SearchBar from '../SearchBar/SearchBar'
 import Found from '../Found/Found'
 import Characters from '../Characters/Characters'
 import Episodes from '../Episodes/Episodes'
+import Locations from '../Locations/Locations'
 import './App.css';
 
 const App = () => {
@@ -86,7 +87,7 @@ const App = () => {
               <Characters
               characters={characters}
               /> 
-          </div>: theBadNews()
+          </div> : theBadNews()
           )} />
           <Route exact path='/episodes'
             render={() => (
@@ -97,6 +98,16 @@ const App = () => {
                 />
               </div> : theBadNews()
             )} />
+          <Route exact path='/locations' 
+            render={() => (
+              !error ?
+              <div className='display-grid'>
+                <Locations 
+                  locations={locations}
+                />
+              </div> : theBadNews()
+            )}
+          />
         <Redirect to='/' />
       </Switch>
     </div>
