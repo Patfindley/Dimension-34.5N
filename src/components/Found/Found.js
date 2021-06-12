@@ -27,9 +27,9 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
   const displayCharacters = () => {
     if (foundChars?.length >= 1) {
      return foundChars?.map(char => {
-       console.log(char, 'hi')
+      //  console.log(char, 'hi')
         return (
-          <div className='character-info' key={char.id}>
+          <div className='character-info' key={char.id} id={Number(char.id)}>
             <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
               onClick={event => favoriteInfo(event)}/>
             <ColorRickon className='color-icon' src={colorRick} alt='color rick icon' />
@@ -60,7 +60,7 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
   const displayLocations = () => {
     if (foundLocations?.length) {
       return foundLocations?.map(loc => {
-        console.log(loc)
+        // console.log(loc)
 
         return (
           <div className='location-info' key={loc.id}>

@@ -12,7 +12,7 @@ import './App.css';
 const App = () => {
   const [characters, setCharacters] = useState('')
   const [foundChars, setFoundChars] = useState('')
-  const [favChars, setFavChars] = useState('')
+  const [favChars, setFavChars] = useState([])
   const [episodes, setEpisodes] = useState('')
   const [foundEpisodes, setFoundEpisodes] = useState('')
   const [locations, setLocations] = useState('')
@@ -49,10 +49,9 @@ const App = () => {
         return loc.name.toLowerCase().includes(searchResults)
       })
     setFoundLocations(locFind)
-    console.log(foundLocations)
   }
 }
-  }, [searchResults, characters, episodes])
+  }, [searchResults, characters, episodes, locations])
 
   const pullSearch = (search) => {
     setSearchResults(search)
@@ -62,9 +61,10 @@ const App = () => {
     if (e.target.closest('.character-info')) {
       let target = e.target.closest('div').id
       let charToFav = characters.find(char => char.id === Number(target))
-      setFavChars({...favChars, charToFav})
+      console.log(target, 'target', charToFav, '<<char to fav')
+      setFavChars([...favChars, charToFav])
     }
-    console.log(favChars)
+    console.log(favChars, 'fav chars')
   }
 
   const theBadNews = () => {

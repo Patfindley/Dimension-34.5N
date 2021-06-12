@@ -50,7 +50,7 @@ const NavOpen = styled.div`
   // background-color: #C4EEB3;
   // box-shadow: 0px 4px 8px 2px rgba(173,211,158,0.88)
   `
-  const UL = styled.ul`
+const UL = styled.ul`
   font-family: 'Press Start 2P', cursive;
   font-size: .7em;
   display: flex;
@@ -60,14 +60,12 @@ const NavOpen = styled.div`
 `
 const LI = styled.li`
   list-style: none;
+  transition: text-shadow .5s;
+  transition: color .6s;
 `
 const Linky = styled(Link)`
   text-decoration: none;
-  // color: #A3DCF4;
   color: black;
-  // ${LI}:hover & {
-  //   background-color: #A3DCF4;
-  //   box-shadow: 0px 0px 6px 2px rgba(000,000,000,0.49)
   `
 
 const Nav = () => {
@@ -100,10 +98,10 @@ const Nav = () => {
       </BurgerContainer>
         <NavOpen className='nav-open'>
           <UL>
-           <Linky to='/characters'><LI>Characters</LI></Linky> 
-           <Linky to='/episodes'><LI>Episodes</LI></Linky>
-           <Linky to='/locations'><LI>Locations</LI></Linky>
-           <Linky to='/'><LI>Home</LI></Linky>
+           <Linky to='/characters'><LI className='nav-li'>Characters</LI></Linky> 
+           <Linky to='/episodes'><LI className='nav-li'>Episodes</LI></Linky>
+           <Linky to='/locations'><LI className='nav-li'>Locations</LI></Linky>
+           <Linky to='/' className='nav-li'><LI >Home</LI></Linky>
           </UL>
         </NavOpen>
       </NavMenu>
