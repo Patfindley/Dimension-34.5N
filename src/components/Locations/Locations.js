@@ -44,27 +44,27 @@ const LocInfoContainer = styled.div`
   z-index: 0;
 `
 const Locations = ({ locations, favoriteInfo, theBadNews }) => {
-if (locations?.length) {
-  return locations?.map(loc => {
-    const nameClass = `color-icon${loc.id}`
-    return (
-      <LocationInfo className='location-info' key={loc.id} id={loc.id}>
-        <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' loc={loc} />
-        <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' loc={loc}
-          onClick={event => favoriteInfo(event)}/>
-        <Portal className='portal' src={portal} alt='a Portal! But where to?' />
-        <LocInfoContainer className='loc-info-container'>
-          <h2>{loc.name}</h2>
-          <h3>{loc.type}</h3>
-          <h4>{loc.dimension}</h4>
-          {/* <h4>{loc.residents}</h4> */}
-        </LocInfoContainer>
-      </LocationInfo>
-    )
-  })
-} else {
-  theBadNews()
-}
+  if (locations?.length) {
+    return locations?.map(loc => {
+      const nameClass = `color-icon${loc.id}`
+      return (
+        <LocationInfo className='location-info' key={loc.id} id={loc.id}>
+          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' loc={loc} />
+          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' loc={loc}
+            onClick={event => favoriteInfo(event)}/>
+          <Portal className='portal' src={portal} alt='a Portal! But where to?' />
+          <LocInfoContainer className='loc-info-container'>
+            <h2>{loc.name}</h2>
+            <h3>{loc.type}</h3>
+            <h4>{loc.dimension}</h4>
+            {/* <h4>{loc.residents}</h4> */}
+          </LocInfoContainer>
+        </LocationInfo>
+      )
+    })
+  } else {
+    theBadNews()
+  }
 }
 
 Locations.propTypes = {
