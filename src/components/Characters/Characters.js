@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
+import PropTypes from 'prop-types';
 
 const BlankRickon = styled.img`
 position: relative;
@@ -19,7 +20,7 @@ transition: filter .5s;
 opacity: ${({char}) => ( char.isFavorite ?  1 : 0)};
 `
 
-const Characters = ({ characters, favoriteInfo }) => {
+const Characters = ({ characters, favoriteInfo, theBadNews }) => {
   if (characters?.length) {
     return characters?.map(char => {
       const nameClass = `color-icon${char.id}`
@@ -37,6 +38,12 @@ const Characters = ({ characters, favoriteInfo }) => {
     return <h1>go fish</h1>
   }
 } 
+
+Characters.propTypes = {
+  characters: PropTypes.arrayOf(PropTypes.object),
+  favoriteInfo: PropTypes.func,
+  theBadNews: PropTypes.func
+}
 
 
 export default Characters;

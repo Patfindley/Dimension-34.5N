@@ -1,10 +1,12 @@
+// import { gsap } from "gsap"
+// import { useEffect } from "react";
 import styled from 'styled-components'
 import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
 import television from '../../assets/television.svg'
 import portal from '../../assets/portal.png'
 import meeseeks from '../../assets/meeseeks.png'
-
+import PropTypes from 'prop-types';
 
 const BlankRickon = styled.img`
   position: relative;
@@ -59,12 +61,10 @@ top: -259px;
 right: -43px;
 text-align: left;
 font-family: 'Press Start 2P', cursive;
-// border: 1px solid red;
 width: 205px;
 z-index: 0;
 `
 const LocationInfo = styled.div`
-  // border: 1px solid red;
   width: 350px;
   height: 390px;
   z-index: 2;
@@ -80,13 +80,33 @@ const LocInfoContainer = styled.div`
   right: -43px;
   text-align: left;
   font-family: 'Press Start 2P', cursive;
-  // border: 1px solid red;
   width: 205px;
   z-index: 0;
 `
 const Meeseeks = styled.img`
   width: 300px;
   transform: scaleX(-1);
+`
+const SpeechBubble = styled.div`
+  background-color: #f8f8f8;
+  border: 1px solid #c8c8c8;
+  border-radius: 20px;
+  width: 180px;
+  height: 60px;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  left: 198px;
+  opacity: .8;
+`
+const Arrow = styled.div`
+  border-style: solid;
+  position: absolute;
+  border-color: #c8c8c8 transparent transparent transparent;
+  border-width: 8px 8px 0px 8px;
+  bottom: -8px;
+`
+const BubbleText = styled.span`
 `
 const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
 
@@ -151,7 +171,7 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
       })
     }
   }
-
+  
   return (
     <div className='display-found display-grid'>
       {displayCharacters()}
@@ -159,8 +179,20 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
       {displayLocations()}
       {/* <h1>nada</h1> */}
       <Meeseeks src={meeseeks} alt='mr. meeseeks' />
+      <SpeechBubble className='speech-bubble'>
+        <BubbleText className='bubble-text' >End my agony and let me help you find something to learn!</BubbleText>
+        <Arrow className='arrow bottom '></Arrow>
+      </SpeechBubble>
     </div>
   )
+
+}
+
+Found.propTypes = {
+  foundChars: PropTypes.arrayOf(PropTypes.object),
+  foundEpisodes: PropTypes.arrayOf(PropTypes.object),
+  foundLocations: PropTypes.arrayOf(PropTypes.object),
+  favoriteInfo: PropTypes.func
 }
 
 export default Found;

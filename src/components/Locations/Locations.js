@@ -68,7 +68,3 @@ if (locations?.length) {
 
 export default Locations;
 
-// name
-// type
-// dimension
-// residents

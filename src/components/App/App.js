@@ -12,15 +12,15 @@ import Favorites from '../Favorites/Favorites'
 import './App.css';
 
 const App = () => {
-  const [characters, setCharacters] = useState('')
-  const [foundChars, setFoundChars] = useState('')
-  const [favChars, setFavChars] = useState('')
-  const [episodes, setEpisodes] = useState('')
-  const [foundEpisodes, setFoundEpisodes] = useState('')
-  const [favEpisodes, setFavEpisodes] = useState('')
-  const [locations, setLocations] = useState('')
-  const [foundLocations, setFoundLocations] = useState('')
-  const [favLocations, setFavLocations] = useState('')
+  const [characters, setCharacters] = useState([])
+  const [foundChars, setFoundChars] = useState([])
+  const [favChars, setFavChars] = useState([])
+  const [episodes, setEpisodes] = useState([])
+  const [foundEpisodes, setFoundEpisodes] = useState([])
+  const [favEpisodes, setFavEpisodes] = useState([])
+  const [locations, setLocations] = useState([])
+  const [foundLocations, setFoundLocations] = useState([])
+  const [favLocations, setFavLocations] = useState([])
   const [searchResults, setSearchResults] = useState('')
   const [error, setError] = useState('')
 
@@ -128,6 +128,7 @@ const App = () => {
                 favEpisodes={favEpisodes}
                 favLocations={favLocations}
                 favoriteInfo={favoriteInfo}
+                theBadNews={theBadNews}
               />
                 <Found 
                   foundChars={foundChars}
