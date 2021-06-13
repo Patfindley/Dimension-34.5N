@@ -4,11 +4,10 @@ import { gsap } from "gsap"
 import { portalGun } from '../../util'
 import Nav from '../Nav/Nav'
 import SearchBar from '../SearchBar/SearchBar'
-import Found from '../Found/Found'
 import Characters from '../Characters/Characters'
 import Episodes from '../Episodes/Episodes'
 import Locations from '../Locations/Locations'
-import Favorites from '../Favorites/Favorites'
+import MrMeeseeks from '../MrMeeseeks/MrMeeseeks'
 import './App.css';
 
 const App = () => {
@@ -123,19 +122,53 @@ const App = () => {
               <SearchBar 
               pullSearch={pullSearch}
               />
-              <Favorites 
-                favChars={favChars}
-                favEpisodes={favEpisodes}
-                favLocations={favLocations}
+              <div className='display-grid'>
+              {favChars.length > 0 && 
+                <Characters
+                characters={favChars}
                 favoriteInfo={favoriteInfo}
                 theBadNews={theBadNews}
-              />
-                <Found 
-                  foundChars={foundChars}
-                  foundEpisodes={foundEpisodes}
-                  foundLocations={foundLocations}
+                /> 
+                }
+                {favEpisodes.length > 0 && 
+                  <Episodes 
+                  episodes={favEpisodes}
                   favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
                 />
+                }
+                {favLocations.length > 0 && 
+                  <Locations 
+                  locations={favLocations}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
+                />
+                }
+                </div>
+                <div className='display-grid'>
+              {foundChars.length > 0 && 
+                <Characters
+                characters={foundChars}
+                favoriteInfo={favoriteInfo}
+                theBadNews={theBadNews}
+                /> 
+                }
+                {foundEpisodes.length > 0 && 
+                  <Episodes 
+                  episodes={foundEpisodes}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
+                />
+                }
+                {foundLocations.length > 0 && 
+                  <Locations 
+                  locations={foundLocations}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
+                />
+                }
+                <MrMeeseeks />
+                </div>
             </> : theBadNews()
           )} />
         <Route exact path='/characters'

@@ -44,8 +44,8 @@ width: 205px;
 z-index: 0;
 `
 const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
-  if (episodes?.length) {
-    return episodes?.map(episode => {
+  if (episodes.length) {
+    return episodes.map(episode => {
       const splitEpisode = episode.episode.split('')
       const episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
       const nameClass = `color-icon${episode.id}`
