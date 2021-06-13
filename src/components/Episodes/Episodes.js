@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
 import television from '../../assets/television.svg'
+import PropTypes from 'prop-types';
 
 const EpisodeInfo = styled.div`
   // border: 1px solid red;
@@ -65,6 +66,12 @@ const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
   } else {
     theBadNews()
   }
+}
+
+Episodes.propTypes = {
+  episodes: PropTypes.arrayOf(PropTypes.object),
+  favoriteInfo: PropTypes.func,
+  theBadNews: PropTypes.func
 }
 
 export default Episodes;
