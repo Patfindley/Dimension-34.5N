@@ -1,86 +1,86 @@
 [
   {
-    "created": "2017-11-04T20:20:20.965Z"
-    "episode": ["https://rickandmortyapi.com/api/episode/12"]
-    "gender": "Male"
-    "id": 11
-    "image": "https://rickandmortyapi.com/api/character/avatar/11.jpeg"
-    "location": {"name": "Earth (Replacement Dimension)", "url": "https://rickandmortyapi.com/api/location/20"}
-    "name": "Albert Einstein"
-    "origin": {"name": "Earth (C-137)", "url": "https://rickandmortyapi.com/api/location/1"}
-    "species": "Human"
-    "status": "Dead"
-    "type": ""
-    "url": "https://rickandmortyapi.com/api/character/11"
+    "created": "2017-11-04T20:20:20.965Z",
+    "episode": ["https://rickandmortyapi.com/api/episode/12"],
+    "gender": "Male",
+    "id": 11,
+    "image": "https://rickandmortyapi.com/api/character/avatar/11.jpeg",
+    "location": {"name": "Earth (Replacement Dimension)", "url": "https://rickandmortyapi.com/api/location/20"},
+    "name": "Albert Einstein",
+    "origin": {"name": "Earth (C-137)", "url": "https://rickandmortyapi.com/api/location/1"},
+    "species": "Human",
+    "status": "Dead",
+    "type": "",
+    "url": "https://rickandmortyapi.com/api/character/11",
   }, 
   {
-    "created": "2017-11-04T20:32:33.144Z"
-    "episode": ["https://rickandmortyapi.com/api/episode/3"]
-    "gender": "Male"
-    "id": 12
-    "image": "https://rickandmortyapi.com/api/character/avatar/12.jpeg"
-    "location": {"name": "Anatomy Park", "url": "https://rickandmortyapi.com/api/location/5"}
-    "name": "Alexander"
-    "origin": {"name": "Earth (C-137)", "url": "https://rickandmortyapi.com/api/location/1"}
-    "species": "Human"
-    "status": "Dead"
-    "type": ""
+    "created": "2017-11-04T20:32:33.144Z",
+    "episode": ["https://rickandmortyapi.com/api/episode/3"],
+    "gender": "Male",
+    "id": 12,
+    "image": "https://rickandmortyapi.com/api/character/avatar/12.jpeg",
+    "location": {"name": "Anatomy Park", "url": "https://rickandmortyapi.com/api/location/5"},
+    "name": "Alexander",
+    "origin": {"name": "Earth (C-137)", "url": "https://rickandmortyapi.com/api/location/1"},
+    "species": "Human",
+    "status": "Dead",
+    "type": "",
     "url": "https://rickandmortyapi.com/api/character/12"
   },
   {
-    "created": "2017-11-04T20:33:30.779Z"
-    "episode": ["https://rickandmortyapi.com/api/episode/31"]
-    "gender": "unknown"
-    "id": 13
-    "image": "https://rickandmortyapi.com/api/character/avatar/13.jpeg"
-    "location": {"name": "Earth (Replacement Dimension)", "url": "https://rickandmortyapi.com/api/location/20"}
-    "name": "Alien Googah"
-    "origin": {"name": "unknown", "url": ""}
-    "species": "Alien"
-    "status": "unknown"
-    "type": ""
+    "created": "2017-11-04T20:33:30.779Z",
+    "episode": ["https://rickandmortyapi.com/api/episode/31"],
+    "gender": "unknown",
+    "id": 13,
+    "image": "https://rickandmortyapi.com/api/character/avatar/13.jpeg",
+    "location": {"name": "Earth (Replacement Dimension)", "url": "https://rickandmortyapi.com/api/location/20"},
+    "name": "Alien Googah",
+    "origin": {"name": "unknown", "url": ""},
+    "species": "Alien",
+    "status": "unknown",
+    "type": "",
     "url": "https://rickandmortyapi.com/api/character/13"
   },
   {
-    "created": "2017-11-04T20:51:31.373Z"
-    "episode": ["https://rickandmortyapi.com/api/episode/10"]
-    "gender": "Male"
-    "id": 14
-    "image": "https://rickandmortyapi.com/api/character/avatar/14.jpeg"
-    "location": {"name": "Citadel of Ricks", "url": "https://rickandmortyapi.com/api/ocation/3"}
-    "name": "Alien Morty"
-    "origin": {"name": "unknown", "url": ""}
-    "species": "Alien"
-    "status": "unknown"
-    "type": ""
+    "created": "2017-11-04T20:51:31.373Z",
+    "episode": ["https://rickandmortyapi.com/api/episode/10"],
+    "gender": "Male",
+    "id": 14,
+    "image": "https://rickandmortyapi.com/api/character/avatar/14.jpeg",
+    "location": {"name": "Citadel of Ricks", "url": "https://rickandmortyapi.com/api/ocation/3"},
+    "name": "Alien Morty",
+    "origin": {"name": "unknown", "url": ""},
+    "species": "Alien",
+    "status": "unknown",
+    "type": "",
     "url": "https://rickandmortyapi.com/api/character/14"
   },
   {
-    "created": "2017-11-04T20:56:13.215Z"
-    "episode": ["https://rickandmortyapi.com/api/episode/10"]
-    "gender": "Male"
-    "id": 15
-    "image": "https://rickandmortyapi.com/api/character/avatar/15.jpeg"
-    "location": {"name": "Citadel of Ricks", "url": "https://rickandmortyapi.com/api/location/3"}
-    "name": "Alien Rick"
-    "origin": {"name": "unknown", "url": ""}
-    "species": "Alien"
-    "status": "unknown"
-    "type": ""
+    "created": "2017-11-04T20:56:13.215Z",
+    "episode": ["https://rickandmortyapi.com/api/episode/10"],
+    "gender": "Male",
+    "id": 15,
+    "image": "https://rickandmortyapi.com/api/character/avatar/15.jpeg",
+    "location": {"name": "Citadel of Ricks", "url": "https://rickandmortyapi.com/api/location/3"},
+    "name": "Alien Rick",
+    "origin": {"name": "unknown", "url": ""},
+    "species": "Alien",
+    "status": "unknown",
+    "type": "",
     "url": "https://rickandmortyapi.com/api/character/15"
   },
   {
-    "created": "2017-11-04T21:12:45.235Z"
-    "episode": ["https://rickandmortyapi.com/api/episode/15"]
-    "gender": "Male"
-    "id": 16
-    "image": "https://rickandmortyapi.com/api/character/avatar/16.jpeg"
-    "location": {"name": "Earth (Replacement Dimension)", "url": "https://rickandmortyapi.com/api/location/20"}
-    "name": "Amish Cyborg"
-    "origin": {"name": "unknown", "url": ""}
-    "species": "Alien"
-    "status": "Dead"
-    "type": "Parasite"
+    "created": "2017-11-04T21:12:45.235Z",
+    "episode": ["https://rickandmortyapi.com/api/episode/15"],
+    "gender": "Male",
+    "id": 16,
+    "image": "https://rickandmortyapi.com/api/character/avatar/16.jpeg",
+    "location": {"name": "Earth (Replacement Dimension)", "url": "https://rickandmortyapi.com/api/location/20"},
+    "name": "Amish Cyborg",
+    "origin": {"name": "unknown", "url": ""},
+    "species": "Alien",
+    "status": "Dead",
+    "type": "Parasite",
     "url": "https://rickandmortyapi.com/api/character/16"
   }
 
