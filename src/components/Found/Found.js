@@ -96,8 +96,8 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
       const nameClass = `color-icon${char.id}`
         return (
           <div className='character-info' key={char.id} id={Number(char.id)}>
-          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' />
-          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
+          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' obj={char} />
+          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' obj={char}
             onClick={event => favoriteInfo(event)}/>
           <img src={char.image} alt={char.name} />
           <h1>{char.name}</h1>
@@ -115,8 +115,8 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
         const nameClass = `color-icon${episode.id}`
         return (
           <EpisodeInfo className='episode-info' key={episode.id} id={episode.id}>
-          <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' />
-          <BlankRickonTv className='blank-icon' src={blankRick} alt='blank rick icon' 
+          <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' obj={episode} />
+          <BlankRickonTv className='blank-icon' src={blankRick} alt='blank rick icon' obj={episode}
             onClick={event => favoriteInfo(event)}/>
           <Tele className='tele' src={television} alt='retro television' />
           <EpInfoContainer className='ep-info-container'>
@@ -136,8 +136,8 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
         const nameClass = `color-icon${loc.id}`
         return (
           <LocationInfo className='location-info' key={loc.id} id={loc.id}>
-        <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' />
-        <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
+        <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' obj={loc}/>
+        <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' obj={loc}
           onClick={event => favoriteInfo(event)}/>
         <Portal className='portal' src={portal} alt='a Portal! But where to?' />
         <LocInfoContainer className='loc-info-container'>

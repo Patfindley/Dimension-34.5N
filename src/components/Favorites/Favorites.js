@@ -3,7 +3,6 @@ import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
 import television from '../../assets/television.svg'
 import portal from '../../assets/portal.png'
-import meeseeks from '../../assets/meeseeks.png'
 
 const BlankRickon = styled.img`
 position: relative;
@@ -12,7 +11,7 @@ right: -183px;
 width: 16%;
 transition: filter .5s;
 z-index: 2;
-opacity: ${({obj}) => ( !obj.isFavorite ?  1 : 0)};
+opacity: ${({obj}) => ( !obj.isFavorite && obj.id ?  1 : 0)};
 `
 const ColorRickon = styled.img`
 position: relative;
@@ -83,10 +82,6 @@ const LocInfoContainer = styled.div`
   width: 205px;
   z-index: 0;
 `
-const Meeseeks = styled.img`
-  width: 300px;
-  transform: scaleX(-1);
-`
 
 const Favorites = ({ favChars, favEpisodes, favLocations, favoriteInfo }) => {
 
@@ -110,6 +105,7 @@ const Favorites = ({ favChars, favEpisodes, favLocations, favoriteInfo }) => {
   const displayEpisodes = () => {
     if (favEpisodes?.length >= 1) {
       return favEpisodes?.map(episode => {
+        console.log(episode, 'episode')
         const splitEpisode = episode.episode.split('')
         const episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
         const nameClass = `color-icon${episode.id}`
@@ -153,10 +149,10 @@ const Favorites = ({ favChars, favEpisodes, favLocations, favoriteInfo }) => {
   }
 
   return (
-    <div className='display-found display-grid'>
-      {displayCharacters()}
-      {displayEpisodes()}
-      {displayLocations()}
+    <div className='display-favorites display-grid'>
+      {favChars.length ? displayCharacters() : ''}
+      {favEpisodes.length ? displayEpisodes() : ''}
+      {favLocations.length ?displayLocations() : ''}
     </div>
   )
   

@@ -71,7 +71,6 @@ const App = () => {
     if (e.target.closest('.location-info')) {
       findTarget(e, locations, setFavLocations, favLocations)
     }
-    console.log(favChars, '<<fav chars', characters, '<<chars')
   }
 
   const findTarget = (e, data, setter, state) => {
