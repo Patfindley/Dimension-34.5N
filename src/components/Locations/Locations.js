@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
 import portal from '../../assets/portal.png'
+import PropTypes from 'prop-types';
 
 const LocationInfo = styled.div`
   // border: 1px solid red;
@@ -64,6 +65,12 @@ if (locations?.length) {
 } else {
   theBadNews()
 }
+}
+
+Locations.propTypes = {
+  locations: PropTypes.arrayOf(PropTypes.object),
+  favoriteInfo: PropTypes.func,
+  theBadNews: PropTypes.func
 }
 
 export default Locations;
