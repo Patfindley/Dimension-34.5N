@@ -13,7 +13,16 @@ body {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   width: 70%;
   height: 100%;
+}
+
+.blank-icon:hover {
+    filter: invert(93%) sepia(92%) saturate(7451%) hue-rotate(168deg) brightness(100%) contrast(91%);
+}
+
+.nav-li:hover {
+  color: white;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #A3DCF4, 0 0 30px #A3DCF4, 0 0 40px #A3DCF4, 0 0 55px #A3DCF4, 0 0 75px #A3DCF4, -1px 0px 15px rgba(163,220,244,0);
 }

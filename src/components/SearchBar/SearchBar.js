@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 
 
 const SearchBar = ({ pullSearch }) => {
@@ -17,6 +18,10 @@ const SearchBar = ({ pullSearch }) => {
      </form>
    </div>
  ) 
+}
+
+SearchBar.propTypes = {
+  pullSearch: PropTypes.func
 }
 
 export default SearchBar;

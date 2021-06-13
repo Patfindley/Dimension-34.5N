@@ -1,24 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import { gsap } from "gsap"
 import { portalGun } from '../../util'
 import Nav from '../Nav/Nav'
 import SearchBar from '../SearchBar/SearchBar'
-import Found from '../Found/Found'
 import Characters from '../Characters/Characters'
 import Episodes from '../Episodes/Episodes'
+import Locations from '../Locations/Locations'
+import MrMeeseeks from '../MrMeeseeks/MrMeeseeks'
 import './App.css';
 
 const App = () => {
-  const [characters, setCharacters] = useState('')
-  const [foundChars, setFoundChars] = useState('')
-  const [episodes, setEpisodes] = useState('')
-  const [foundEpisodes, setFoundEpisodes] = useState('')
-  const [locations, setLocations] = useState('')
+  const [characters, setCharacters] = useState([])
+  const [foundChars, setFoundChars] = useState([])
+  const [favChars, setFavChars] = useState([])
+  const [episodes, setEpisodes] = useState([])
+  const [foundEpisodes, setFoundEpisodes] = useState([])
+  const [favEpisodes, setFavEpisodes] = useState([])
+  const [locations, setLocations] = useState([])
+  const [foundLocations, setFoundLocations] = useState([])
+  const [favLocations, setFavLocations] = useState([])
   const [searchResults, setSearchResults] = useState('')
   const [error, setError] = useState('')
 
-   useEffect(() => {
-     portalGun()
+  useEffect(() => {
+    portalGun()
     .then(data => {
       setCharacters(data.characterRetreiverRay.results);
       setEpisodes(data.episodeRetreiverRay.results);
@@ -41,12 +47,55 @@ const App = () => {
       })
     setFoundEpisodes(epFind)
   }
+    if (locations.length) {
+      const locFind = locations.filter(loc => {
+        return loc.name.toLowerCase().includes(searchResults)
+      })
+    setFoundLocations(locFind)
+  }
 }
-  }, [searchResults, characters, episodes])
-
+  }, [searchResults, characters, episodes, locations])
 
   const pullSearch = (search) => {
     setSearchResults(search)
+  }
+  
+  const favoriteInfo = (e) => {
+    if (e.target.closest('.character-info')) {
+      findTarget(e, characters, setFavChars, favChars)
+    }
+    if (e.target.closest('.episode-info')) {
+      findTarget(e, episodes, setFavEpisodes, favEpisodes)
+    }
+    if (e.target.closest('.location-info')) {
+      findTarget(e, locations, setFavLocations, favLocations)
+    }
+  }
+
+  const findTarget = (e, data, setter, state) => {
+    const targetDiv = e.target.closest('div').id
+    const targetBlankIcon = e.target.closest('.blank-icon')
+    const targetToFav = data.find(targ => targ.id === Number(targetDiv))
+    if (!targetToFav.isFavorite) {
+    targetToFav.isFavorite = true
+    setter([...state, targetToFav])
+    favAnimation(targetBlankIcon, targetDiv)
+    } else {
+    targetToFav.isFavorite = false
+    const removedTarget = state.filter(targ => targ.id !== Number(targetDiv))
+    setter([removedTarget])
+    unfavAnimation(targetBlankIcon, targetDiv)
+    }
+  }
+
+  const favAnimation = (target, targetDiv) => {
+    gsap.to(target, .5, {opacity: 0, rotateZ: 720})
+    gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
+  }
+
+  const unfavAnimation = (target, targetDiv) => {
+    gsap.to(target, .5, {opacity: 1, rotateZ: '-720'})
+    gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 0, rotateZ: '-720'})
   }
 
   const theBadNews = () => {
@@ -73,10 +122,53 @@ const App = () => {
               <SearchBar 
               pullSearch={pullSearch}
               />
-                <Found 
-                  foundChars={foundChars}
-                  foundEpisodes={foundEpisodes}
+              <div className='display-grid'>
+              {favChars.length > 0 && 
+                <Characters
+                characters={favChars}
+                favoriteInfo={favoriteInfo}
+                theBadNews={theBadNews}
+                /> 
+                }
+                {favEpisodes.length > 0 && 
+                  <Episodes 
+                  episodes={favEpisodes}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
                 />
+                }
+                {favLocations.length > 0 && 
+                  <Locations 
+                  locations={favLocations}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
+                />
+                }
+                </div>
+                <div className='display-grid'>
+              {foundChars.length > 0 && 
+                <Characters
+                characters={foundChars}
+                favoriteInfo={favoriteInfo}
+                theBadNews={theBadNews}
+                /> 
+                }
+                {foundEpisodes.length > 0 && 
+                  <Episodes 
+                  episodes={foundEpisodes}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
+                />
+                }
+                {foundLocations.length > 0 && 
+                  <Locations 
+                  locations={foundLocations}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
+                />
+                }
+                <MrMeeseeks />
+                </div>
             </> : theBadNews()
           )} />
         <Route exact path='/characters'
@@ -85,8 +177,10 @@ const App = () => {
             <div className='display-grid'>
               <Characters
               characters={characters}
+              favoriteInfo={favoriteInfo}
+              theBadNews={theBadNews}
               /> 
-          </div>: theBadNews()
+          </div> : theBadNews()
           )} />
           <Route exact path='/episodes'
             render={() => (
@@ -94,9 +188,23 @@ const App = () => {
               <div className='display-grid'>
                 <Episodes 
                   episodes={episodes}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
                 />
               </div> : theBadNews()
             )} />
+          <Route exact path='/locations' 
+            render={() => (
+              !error ?
+              <div className='display-grid'>
+                <Locations 
+                  locations={locations}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
+                />
+              </div> : theBadNews()
+            )}
+          />
         <Redirect to='/' />
       </Switch>
     </div>
