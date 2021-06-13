@@ -8,6 +8,7 @@ import Found from '../Found/Found'
 import Characters from '../Characters/Characters'
 import Episodes from '../Episodes/Episodes'
 import Locations from '../Locations/Locations'
+import Favorites from '../Favorites/Favorites'
 import './App.css';
 
 const App = () => {
@@ -23,8 +24,8 @@ const App = () => {
   const [searchResults, setSearchResults] = useState('')
   const [error, setError] = useState('')
 
-   useEffect(() => {
-     portalGun()
+  useEffect(() => {
+    portalGun()
     .then(data => {
       setCharacters(data.characterRetreiverRay.results);
       setEpisodes(data.episodeRetreiverRay.results);
@@ -59,36 +60,44 @@ const App = () => {
   const pullSearch = (search) => {
     setSearchResults(search)
   }
-
+  
   const favoriteInfo = (e) => {
     if (e.target.closest('.character-info')) {
-      console.log('hi char');
-      let targetDiv = e.target.closest('div').id
-      let targetBlank = e.target.closest('.blank-icon')
-      let charToFav = characters.find(char => char.id === Number(targetDiv))
-      setFavChars([...favChars, charToFav])
-      gsap.to(targetBlank, .5, {opacity: 0, rotateZ: 720})
-      gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
+      findTarget(e, characters, setFavChars, favChars)
     }
     if (e.target.closest('.episode-info')) {
-    // if (e.target.closest('.ep-info-container')) {
-      console.log('hi episode')
-      let targetDiv = e.target.closest('div').id
-      let targetBlank = e.target.closest('.blank-icon')
-      let epToFav = episodes.find(ep => ep.id === Number(targetDiv))
-      console.log(targetDiv, 'target div', epToFav, '<<ep to fav')
-      setFavEpisodes([...favEpisodes, epToFav])
-      gsap.to(targetBlank, .5, {opacity: 0, rotateZ: 720})
-      gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
-      console.log(targetBlank, ' t blank');
+      findTarget(e, episodes, setFavEpisodes, favEpisodes)
     }
     if (e.target.closest('.location-info')) {
-      console.log('hi loc');
-      let targetDiv = e.target.closest('div').id
-      let locToFav = locations.find(ep => ep.id === Number(targetDiv))
-      console.log(targetDiv, 'target div', locToFav, '<<loc to fav')
-      setFavLocations([...favLocations, locToFav])
+      findTarget(e, locations, setFavLocations, favLocations)
     }
+    console.log(favChars, '<<fav chars', characters, '<<chars')
+  }
+
+  const findTarget = (e, data, setter, state) => {
+    const targetDiv = e.target.closest('div').id
+    const targetBlankIcon = e.target.closest('.blank-icon')
+    const targetToFav = data.find(targ => targ.id === Number(targetDiv))
+    if (!targetToFav.isFavorite) {
+    targetToFav.isFavorite = true
+    setter([...state, targetToFav])
+    favAnimation(targetBlankIcon, targetDiv)
+    } else {
+    targetToFav.isFavorite = false
+    const removedTarget = state.filter(targ => targ.id !== Number(targetDiv))
+    setter([removedTarget])
+    unfavAnimation(targetBlankIcon, targetDiv)
+    }
+  }
+
+  const favAnimation = (target, targetDiv) => {
+    gsap.to(target, .5, {opacity: 0, rotateZ: 720})
+    gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
+  }
+
+  const unfavAnimation = (target, targetDiv) => {
+    gsap.to(target, .5, {opacity: 1, rotateZ: '-720'})
+    gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 0, rotateZ: '-720'})
   }
 
   const theBadNews = () => {
@@ -115,6 +124,12 @@ const App = () => {
               <SearchBar 
               pullSearch={pullSearch}
               />
+              <Favorites 
+                favChars={favChars}
+                favEpisodes={favEpisodes}
+                favLocations={favLocations}
+                favoriteInfo={favoriteInfo}
+              />
                 <Found 
                   foundChars={foundChars}
                   foundEpisodes={foundEpisodes}
@@ -130,6 +145,7 @@ const App = () => {
               <Characters
               characters={characters}
               favoriteInfo={favoriteInfo}
+              theBadNews={theBadNews}
               /> 
           </div> : theBadNews()
           )} />
@@ -140,6 +156,7 @@ const App = () => {
                 <Episodes 
                   episodes={episodes}
                   favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
                 />
               </div> : theBadNews()
             )} />
@@ -150,6 +167,7 @@ const App = () => {
                 <Locations 
                   locations={locations}
                   favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
                 />
               </div> : theBadNews()
             )}

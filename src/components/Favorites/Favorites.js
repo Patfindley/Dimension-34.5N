@@ -5,24 +5,23 @@ import television from '../../assets/television.svg'
 import portal from '../../assets/portal.png'
 import meeseeks from '../../assets/meeseeks.png'
 
-
 const BlankRickon = styled.img`
-  position: relative;
-  top: 65px;
-  right: -183px;
-  width: 16%;
-  transition: filter .5s;
-  z-index: 2;
-  opacity: ${({obj}) => ( !obj.isFavorite ?  1 : 0)};
+position: relative;
+top: 65px;
+right: -183px;
+width: 16%;
+transition: filter .5s;
+z-index: 2;
+opacity: ${({obj}) => ( !obj.isFavorite ?  1 : 0)};
 `
 const ColorRickon = styled.img`
-  position: relative;
-  top: 65px;
-  right: -242px;
-  width: 16%;
-  transition: filter .5s;
-  z-index: 2;
-  opacity: ${({obj}) => ( obj.isFavorite ?  1 : 0)};
+position: relative;
+top: 65px;
+right: -242px;
+width: 16%;
+transition: filter .5s;
+z-index: 2;
+opacity: ${({obj}) => ( obj.isFavorite ?  1 : 0)};
 `
 const BlankRickonTv = styled.img`
   position: relative;
@@ -34,13 +33,13 @@ const BlankRickonTv = styled.img`
   opacity: ${({obj}) => ( !obj.isFavorite ?  1 : 0)};
 `
 const ColorRickonTv = styled.img`
-  position: relative;
-  top: 157px;
-  right: -225px;
-  width: 16%;
-  transition: filter .5s;
-  z-index: 2;
-  opacity: ${({obj}) => ( obj.isFavorite ?  1 : 0)};
+position: relative;
+top: 157px;
+right: -225px;
+width: 16%;
+transition: filter .5s;
+z-index: 2;
+opacity: ${({obj}) => ( obj.isFavorite ?  1 : 0)};
 `
 const EpisodeInfo = styled.div`
   // border: 1px solid red;
@@ -88,16 +87,17 @@ const Meeseeks = styled.img`
   width: 300px;
   transform: scaleX(-1);
 `
-const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
+
+const Favorites = ({ favChars, favEpisodes, favLocations, favoriteInfo }) => {
 
   const displayCharacters = () => {
-    if (foundChars?.length >= 1) {
-     return foundChars?.map(char => {
+    if (favChars?.length >= 1) {
+     return favChars?.map(char => {
       const nameClass = `color-icon${char.id}`
         return (
           <div className='character-info' key={char.id} id={Number(char.id)}>
-          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' />
-          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
+          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' obj={char}/>
+          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' obj={char}
             onClick={event => favoriteInfo(event)}/>
           <img src={char.image} alt={char.name} />
           <h1>{char.name}</h1>
@@ -108,15 +108,15 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
   }
 
   const displayEpisodes = () => {
-    if (foundEpisodes?.length >= 1) {
-      return foundEpisodes?.map(episode => {
+    if (favEpisodes?.length >= 1) {
+      return favEpisodes?.map(episode => {
         const splitEpisode = episode.episode.split('')
         const episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
         const nameClass = `color-icon${episode.id}`
         return (
           <EpisodeInfo className='episode-info' key={episode.id} id={episode.id}>
-          <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' />
-          <BlankRickonTv className='blank-icon' src={blankRick} alt='blank rick icon' 
+          <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' obj={episode} />
+          <BlankRickonTv className='blank-icon' src={blankRick} alt='blank rick icon' obj={episode}
             onClick={event => favoriteInfo(event)}/>
           <Tele className='tele' src={television} alt='retro television' />
           <EpInfoContainer className='ep-info-container'>
@@ -131,13 +131,13 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
   }
 
   const displayLocations = () => {
-    if (foundLocations?.length) {
-      return foundLocations?.map(loc => {
+    if (favLocations?.length) {
+      return favLocations?.map(loc => {
         const nameClass = `color-icon${loc.id}`
         return (
           <LocationInfo className='location-info' key={loc.id} id={loc.id}>
-        <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' />
-        <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
+        <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' obj={loc}/>
+        <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' obj={loc}
           onClick={event => favoriteInfo(event)}/>
         <Portal className='portal' src={portal} alt='a Portal! But where to?' />
         <LocInfoContainer className='loc-info-container'>
@@ -157,10 +157,9 @@ const Found = ({ foundChars, foundEpisodes, foundLocations, favoriteInfo }) => {
       {displayCharacters()}
       {displayEpisodes()}
       {displayLocations()}
-      {/* <h1>nada</h1> */}
-      <Meeseeks src={meeseeks} alt='mr. meeseeks' />
     </div>
   )
+  
 }
 
-export default Found;
+export default Favorites

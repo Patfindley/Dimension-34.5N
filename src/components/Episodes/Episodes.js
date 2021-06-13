@@ -9,29 +9,28 @@ const EpisodeInfo = styled.div`
   height: 390px;
   z-index: 2;
 `
-const BlankRickon = styled.img`
-  opacity: 1;
+const BlankRickonTv = styled.img`
   position: relative;
   top: 157px;
   right: -169px;
   width: 16%;
   transition: filter .5s;
   z-index: 2;
-`
-const ColorRickon = styled.img`
-  opacity: 0;
+  opacity: ${({episode}) => ( !episode.isFavorite ?  1 : 0)};
+  `
+const ColorRickonTv = styled.img`
   position: relative;
   top: 157px;
   right: -225px;
   width: 16%;
   transition: filter .5s;
   z-index: 2;
-`
+  opacity: ${({episode}) => ( episode.isFavorite ?  1 : 0)};
+  `
 const Tele = styled.img`
-position: relative;
-width: 343px;
-// right: 63px;
-z-index: 1;
+  position: relative;
+  width: 343px;
+  z-index: 1;
 `
 const EpInfoContainer = styled.div`
 position: relative;
@@ -43,8 +42,7 @@ font-family: 'Press Start 2P', cursive;
 width: 205px;
 z-index: 0;
 `
-
-const Episodes = ({ episodes, favoriteInfo }) => {
+const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
   if (episodes?.length) {
     return episodes?.map(episode => {
       const splitEpisode = episode.episode.split('')
@@ -52,8 +50,8 @@ const Episodes = ({ episodes, favoriteInfo }) => {
       const nameClass = `color-icon${episode.id}`
       return (
         <EpisodeInfo className='episode-info' key={episode.id} id={episode.id}>
-          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' />
-          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' 
+          <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' episode={episode}/>
+          <BlankRickonTv className='blank-icon' src={blankRick} alt='blank rick icon' episode={episode}
             onClick={event => favoriteInfo(event)}/>
           <Tele className='tele' src={television} alt='retro television' />
           <EpInfoContainer className='ep-info-container'>
@@ -64,6 +62,8 @@ const Episodes = ({ episodes, favoriteInfo }) => {
         </EpisodeInfo>
         )
     })
+  } else {
+    theBadNews()
   }
 }
 
