@@ -31,6 +31,7 @@ const App = () => {
       setLocations(data.locationRetreiverRay.results);
     })
     .catch(error => setError({error}))
+    console.log(characters, '<< character', episodes, '<< episodes', locations, '<<locations')
   }, [])
 
   useEffect(() => {
