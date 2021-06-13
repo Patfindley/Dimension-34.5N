@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 
-const SearchBar = () => {
-  const [search, setSearch] = useState('');
+const SearchBar = ({ pullSearch }) => {
+  const searchValue = useRef()
+  
  return (
    <div>
      <form>
@@ -10,8 +11,8 @@ const SearchBar = () => {
         type='text'
         name='search'
         placeholder='Buuurrpp learn something'
-        value={search}
-        onChange={event => setSearch(event.target.value)}
+        ref={searchValue}
+        onChange={() => pullSearch(searchValue.current.value)}
        />
      </form>
    </div>
