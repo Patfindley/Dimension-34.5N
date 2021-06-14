@@ -9,6 +9,9 @@ const LocationInfo = styled.div`
   width: 350px;
   height: 390px;
   z-index: 2;
+  @media only screen and (max-width: 768px) {
+    width: 282px;
+  }
 `
 const BlankRickon = styled.img`
   position: relative;
@@ -18,6 +21,10 @@ const BlankRickon = styled.img`
   transition: filter .5s;
   z-index: 2;
   opacity: ${({loc}) => ( !loc.isFavorite ?  1 : 0)};
+  @media only screen and (max-width: 768px) {
+    width: 23%;
+    right: -138px;
+  }
 `
 const ColorRickon = styled.img`
   position: relative;
@@ -27,11 +34,18 @@ const ColorRickon = styled.img`
   transition: filter .5s;
   z-index: 2;
   opacity: ${({loc}) => ( loc.isFavorite ?  1 : 0)};
+  @media only screen and (max-width: 768px) {
+    width: 23%;
+    right: -203px;
+  }
 `
 const Portal = styled.img`
   position: relative;
   width: 343px;
   z-index: 0;
+  @media only screen and (max-width: 768px) {
+    width: 285px;
+  }
 `
 const LocInfoContainer = styled.div`
   position: relative;
@@ -39,9 +53,11 @@ const LocInfoContainer = styled.div`
   right: -43px;
   text-align: left;
   font-family: 'Press Start 2P', cursive;
-  // border: 1px solid red;
   width: 205px;
   z-index: 0;
+  @media only screen and (max-width: 768px) {
+    font-size: .9em;
+  }
 `
 const Locations = ({ locations, favoriteInfo, theBadNews }) => {
   if (locations?.length) {
