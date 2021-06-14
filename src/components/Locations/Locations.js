@@ -74,7 +74,6 @@ const Locations = ({ locations, favoriteInfo, theBadNews }) => {
             <h2>{loc.name}</h2>
             <h3>{loc.type}</h3>
             <h4>{loc.dimension}</h4>
-            {/* <h4>{loc.residents}</h4> */}
           </LocInfoContainer>
         </LocationInfo>
       )
@@ -86,7 +85,10 @@ const Locations = ({ locations, favoriteInfo, theBadNews }) => {
 
 Locations.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape({
-
+    dimension: PropTypes.string,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    type: PropTypes.string,
   })),
   favoriteInfo: PropTypes.func,
   theBadNews: PropTypes.func
