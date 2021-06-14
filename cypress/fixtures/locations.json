@@ -1,4 +1,4 @@
-[
+{"results": [
   {
     "created": "2017-11-10T13:09:09.102Z",
     "dimension": "unknown",
@@ -47,4 +47,4 @@
     "type": "Planet",
     "url": "https://rickandmortyapi.com/api/location/11"
   }
-]
+]}

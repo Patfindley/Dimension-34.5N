@@ -23,3 +23,30 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('stub', ()=> {
+  cy.fixture('characters.json')
+    .then(data => {
+      cy.intercept('GET', 'https://rickandmortyapi.com/api/character', {
+        statusCode: 201,
+        delay: 100,
+        body: data
+      })
+    })
+  cy.fixture('episodes.json')
+    .then(data => {
+      cy.intercept('GET', 'https://rickandmortyapi.com/api/episode', {
+        statusCode: 201,
+        delay: 100,
+        body: data
+      })
+    })
+    cy.fixture('locations.json')
+    .then(data => {
+      cy.intercept('GET', 'https://rickandmortyapi.com/api/location', {
+        statusCode: 201,
+        delay: 100,
+        body: data
+      })
+    })
+})

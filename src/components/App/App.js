@@ -58,7 +58,7 @@ const App = () => {
   }, [searchResults, characters, episodes, locations])
 
   const pullSearch = (search) => {
-    setSearchResults(search)
+    setSearchResults(search.toLowerCase())
   }
   
   const favoriteInfo = (e) => {
@@ -100,6 +100,7 @@ const App = () => {
   }
 
   const theBadNews = () => {
+    return (
     <article className="display-bad-news">
       <h3>{error.message}</h3>
       <Link to='/'>
@@ -108,6 +109,7 @@ const App = () => {
         </h4>
       </Link>
     </article>
+    )
   }
 
   return (

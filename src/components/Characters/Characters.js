@@ -26,8 +26,8 @@ const Characters = ({ characters, favoriteInfo, theBadNews }) => {
       const nameClass = `color-icon${char.id}`
       return (
         <div className='character-info' key={char.id} id={Number(char.id)}>
-          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' char={char}/>
-          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' char={char}
+          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' char={char}/>
+          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' data-cy='blank-icon' char={char}
             onClick={event => favoriteInfo(event)}/>
           <img src={char.image} alt={char.name} />
           <h1>{char.name}</h1>
@@ -35,7 +35,7 @@ const Characters = ({ characters, favoriteInfo, theBadNews }) => {
       )
     })
   } else {
-    return <h1>go fish</h1>
+    {theBadNews()}
   }
 } 
 

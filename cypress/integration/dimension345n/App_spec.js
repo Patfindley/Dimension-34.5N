@@ -1,13 +1,6 @@
 describe('App', () => {
   beforeEach(() => {
-    cy.fixture('characters.json')
-    .then(data => {
-      cy.intercept('GET', 'https://rickandmortyapi.com/api/character', {
-        statusCode: 201,
-        delay: 100,
-        body: data
-      })
-    })
+    cy.stub()
     cy.visit('http://localhost:3000')
   })
 
@@ -44,9 +37,24 @@ describe('App', () => {
     .should('have.css', 'opacity', '0')
   })
 
-  it('Should show results when search bar is used', () => {
+  it('Should show results when character is searched', () => {
     cy.get('input')
     .type('amish')
+    .get('[src="https://rickandmortyapi.com/api/character/avatar/16.jpeg"]')
+  })
+
+  it('Should show results when episode is searched', () => {
+    cy.get('input')
+    .type('rick potion #9')
+    .get('h3')
+    .contains('Rick Potion #9')
+  })
+
+  it('Should show results when location is searched', () => {
+    cy.get('input')
+    .type('Post-Apocalyptic Earth')
+    .get('h3')
+    .contains('Planet')
   })
 
   it("Should navigate you to characters section when drop down link is clicked", () => {
@@ -57,6 +65,7 @@ describe('App', () => {
 
   it("Should navigate you to episodes section when drop down link is clicked", () => {
     cy.get('.burger-container').click()
+    .wait(1500)
     .get('[href="/episodes"]').click()
     .url().should('include', '/episodes')
   })

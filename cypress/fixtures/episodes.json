@@ -1,4 +1,4 @@
-[
+{"results": [
   {
     "air_date": "January 27, 2014",
     "characters": [
@@ -215,4 +215,4 @@
 "name": "Close Rick-counters of the Rick Kind",
 "url": "https://rickandmortyapi.com/api/episode/10"
   }
-]
+]}
