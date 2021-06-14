@@ -12,15 +12,15 @@ const NavMenu = styled.nav`
   margin-right: 10px;
 `
 const BurgerContainer = styled.div`
-  // display: grid;
   height: 85px;
   top: 23px;
-  // right: 2%;
   position: absolute;
   background-color: #C4EEB3;
-  // background-color: #F2C9D9; //dark pink
   border-radius: 50%;
-  box-shadow: 0px 0px 8px 2px rgba(173,211,158,0.88)
+  box-shadow: 0px 0px 8px 2px rgba(173,211,158,0.88);
+  @media only screen and (max-width: 2560px) {
+    width: 8%;
+  }
 `
 const Patty = styled.span`
   display: block;
@@ -48,8 +48,9 @@ const NavOpen = styled.div`
   position: absolute;
   top: 86px;
   z-index: 2;
-  // background-color: #C4EEB3;
-  // box-shadow: 0px 4px 8px 2px rgba(173,211,158,0.88)
+  @media only screen and (max-width: 2560px) {
+    right: -1%;
+  }
   `
 const UL = styled.ul`
   font-family: 'Press Start 2P', cursive;

@@ -35,7 +35,7 @@ const Characters = ({ characters, favoriteInfo, theBadNews }) => {
       )
     })
   } else {
-    {theBadNews()}
+    theBadNews()
   }
 } 
 

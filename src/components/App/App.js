@@ -31,13 +31,12 @@ const App = () => {
       setLocations(data.locationRetreiverRay.results);
     })
     .catch(error => setError({error}))
-    console.log(characters, '<< character', episodes, '<< episodes', locations, '<<locations')
   }, [])
 
   useEffect(() => {
     if (searchResults?.length > 1) {
       if (characters?.length) {
-        const charFind = characters?.filter(char => {
+        const charFind = characters.filter(char => {
           return char.name.toLowerCase().includes(searchResults) 
       })
     setFoundChars(charFind)

@@ -15,6 +15,7 @@ height: 60px;
 text-align: center;
 padding: 20px;
 position: absolute;
+top: 82px;
 left: 198px;
 opacity: .8;
 `
