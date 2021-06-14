@@ -60,6 +60,7 @@ const LocInfoContainer = styled.div`
   }
 `
 const Locations = ({ locations, favoriteInfo, theBadNews }) => {
+  console.log(locations)
   if (locations?.length) {
     return locations?.map(loc => {
       const nameClass = `loc-color-icon${loc.id}`
@@ -84,7 +85,9 @@ const Locations = ({ locations, favoriteInfo, theBadNews }) => {
 }
 
 Locations.propTypes = {
-  locations: PropTypes.arrayOf(PropTypes.object),
+  locations: PropTypes.arrayOf(PropTypes.shape({
+
+  })),
   favoriteInfo: PropTypes.func,
   theBadNews: PropTypes.func
 }
