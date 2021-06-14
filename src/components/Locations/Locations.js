@@ -49,8 +49,8 @@ const Locations = ({ locations, favoriteInfo, theBadNews }) => {
       const nameClass = `color-icon${loc.id}`
       return (
         <LocationInfo className='location-info' key={loc.id} id={loc.id}>
-          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' loc={loc} />
-          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' loc={loc}
+          <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' loc={loc} />
+          <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' data-cy='blank-icon' loc={loc}
             onClick={event => favoriteInfo(event)}/>
           <Portal className='portal' src={portal} alt='a Portal! But where to?' />
           <LocInfoContainer className='loc-info-container'>
