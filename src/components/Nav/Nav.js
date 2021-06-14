@@ -47,6 +47,7 @@ const NavOpen = styled.div`
   right: 2%;
   position: absolute;
   top: 86px;
+  z-index: 2;
   // background-color: #C4EEB3;
   // box-shadow: 0px 4px 8px 2px rgba(173,211,158,0.88)
   `
@@ -57,11 +58,13 @@ const UL = styled.ul`
   flex-direction: column;
   height: 75%;
   justify-content: space-around;
+  z-index: 2;
 `
 const LI = styled.li`
   list-style: none;
   transition: text-shadow .5s;
   transition: color .6s;
+  z-index: 2;
 `
 const Linky = styled(Link)`
   text-decoration: none;

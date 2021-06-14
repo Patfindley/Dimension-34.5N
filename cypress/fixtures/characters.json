@@ -1,4 +1,4 @@
-[
+{"results":[
   {
     "created": "2017-11-04T20:20:20.965Z",
     "episode": ["https://rickandmortyapi.com/api/episode/12"],
@@ -11,7 +11,7 @@
     "species": "Human",
     "status": "Dead",
     "type": "",
-    "url": "https://rickandmortyapi.com/api/character/11",
+    "url": "https://rickandmortyapi.com/api/character/11"
   }, 
   {
     "created": "2017-11-04T20:32:33.144Z",
@@ -84,4 +84,4 @@
     "url": "https://rickandmortyapi.com/api/character/16"
   }
 
-]
+]}

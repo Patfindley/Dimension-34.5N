@@ -1,0 +1,50 @@
+{"results": [
+  {
+    "created": "2017-11-10T13:09:09.102Z",
+    "dimension": "unknown",
+    "id": 6,
+    "name": "Interdimensional Cable",
+    "type": "TV",
+    "url": "https://rickandmortyapi.com/api/location/6"
+  },
+  {
+    "created": "2017-11-10T13:09:17.136Z",
+    "dimension": "unknown",
+    "id": 7,
+    "name": "Immortality Field Resort",
+    "type": "Resort",
+    "url": "https://rickandmortyapi.com/api/location/7"
+  },
+  {
+    "created": "2017-11-10T13:09:22.551Z",
+    "dimension": "Post-Apocalyptic Dimension",
+    "id": 8,
+    "name": "Post-Apocalyptic Earth",
+    "type": "Planet",
+    "url": "https://rickandmortyapi.com/api/location/8"
+  },
+  {
+    "created": "2017-11-10T13:09:29.566Z",
+    "dimension": "Replacement Dimension",
+    "id": 9,
+    "name": "Purge Planet",
+    "type": "Planet",
+    "url": "https://rickandmortyapi.com/api/location/9"
+  },
+  {
+    "created": "2017-11-18T11:21:51.643Z",
+    "dimension": "unknown",
+    "id": 10,
+    "name": "Venzenulon 7",
+    "type": "Planet",
+    "url": "https://rickandmortyapi.com/api/location/10"
+  },
+  {
+    "created": "2017-11-18T11:26:03.325Z",
+    "dimension": "unknown",
+    "id": 11,
+    "name": "Bepis 9",
+    "type": "Planet",
+    "url": "https://rickandmortyapi.com/api/location/11"
+  }
+]}

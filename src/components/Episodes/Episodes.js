@@ -51,8 +51,8 @@ const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
       const nameClass = `color-icon${episode.id}`
       return (
         <EpisodeInfo className='episode-info' key={episode.id} id={episode.id}>
-          <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' episode={episode}/>
-          <BlankRickonTv className='blank-icon' src={blankRick} alt='blank rick icon' episode={episode}
+          <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' episode={episode}/>
+          <BlankRickonTv className='blank-icon' src={blankRick} alt='blank rick icon' data-cy='blank-icon' episode={episode}
             onClick={event => favoriteInfo(event)}/>
           <Tele className='tele' src={television} alt='retro television' />
           <EpInfoContainer className='ep-info-container'>

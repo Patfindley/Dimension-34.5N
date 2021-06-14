@@ -35,20 +35,20 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    if (searchResults.length > 1) {
-      if (characters.length) {
+    if (searchResults?.length > 1) {
+      if (characters?.length) {
         const charFind = characters?.filter(char => {
           return char.name.toLowerCase().includes(searchResults) 
       })
     setFoundChars(charFind)
   }
-    if (episodes.length) {
+    if (episodes?.length) {
       const epFind = episodes.filter(ep => {
         return ep.name.toLowerCase().includes(searchResults)
       })
     setFoundEpisodes(epFind)
   }
-    if (locations.length) {
+    if (locations?.length) {
       const locFind = locations.filter(loc => {
         return loc.name.toLowerCase().includes(searchResults)
       })
@@ -58,7 +58,7 @@ const App = () => {
   }, [searchResults, characters, episodes, locations])
 
   const pullSearch = (search) => {
-    setSearchResults(search)
+    setSearchResults(search.toLowerCase())
   }
   
   const favoriteInfo = (e) => {
@@ -84,7 +84,7 @@ const App = () => {
     } else {
     targetToFav.isFavorite = false
     const removedTarget = state.filter(targ => targ.id !== Number(targetDiv))
-    setter([removedTarget])
+    setter(removedTarget)
     unfavAnimation(targetBlankIcon, targetDiv)
     }
   }
@@ -100,6 +100,7 @@ const App = () => {
   }
 
   const theBadNews = () => {
+    return (
     <article className="display-bad-news">
       <h3>{error.message}</h3>
       <Link to='/'>
@@ -108,6 +109,7 @@ const App = () => {
         </h4>
       </Link>
     </article>
+    )
   }
 
   return (
