@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import { gsap } from "gsap"
-import { portalGun, cleanDirtychar } from '../../util'
+import { portalGun, cleanDirtychar, cleanDirtyep } from '../../util'
 import Nav from '../Nav/Nav'
 import SearchBar from '../SearchBar/SearchBar'
 import Characters from '../Characters/Characters'
@@ -27,7 +27,7 @@ const App = () => {
     portalGun()
     .then(data => {
       setCharacters(cleanDirtychar(data.characterRetreiverRay.results));
-      setEpisodes(data.episodeRetreiverRay.results);
+      setEpisodes(cleanDirtyep(data.episodeRetreiverRay.results));
       setLocations(data.locationRetreiverRay.results);
     })
     .catch(error => setError({error}))

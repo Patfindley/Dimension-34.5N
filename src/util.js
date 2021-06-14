@@ -42,3 +42,17 @@ export const cleanDirtychar = (dirtyData) => {
   }
   return cleanData;
 }
+
+export const cleanDirtyep = (dirtyData) => {
+  let cleanData = []
+  if (!dirtyData.length) {
+    return 
+  } else {
+    dirtyData.forEach(ep => {
+      delete ep.created;
+      delete ep.url;
+      cleanData.push(ep)
+    })
+  }
+  return cleanData;
+}
