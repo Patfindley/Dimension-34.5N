@@ -27,6 +27,9 @@ opacity: ${({char}) => ( char.isFavorite ?  1 : 0)};
   left: 380px;
 }
 `
+const CharName = styled.h1`
+text-align: center;
+`
 
 const Characters = ({ characters, favoriteInfo, theBadNews }) => {
   if (characters?.length) {
@@ -38,7 +41,7 @@ const Characters = ({ characters, favoriteInfo, theBadNews }) => {
           <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' data-cy='blank-icon' char={char}
             onClick={event => favoriteInfo(event)}/>
           <img src={char.image} alt={char.name} />
-          <h1>{char.name}</h1>
+          <CharName>{char.name}</CharName>
         </div>
       )
     })

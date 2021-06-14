@@ -19,7 +19,7 @@ const BurgerContainer = styled.div`
   border-radius: 50%;
   box-shadow: 0px 0px 8px 2px rgba(173,211,158,0.88);
   @media only screen and (max-width: 2560px) {
-    width: 8%;
+    width: 3%;
   }
 `
 const Patty = styled.span`
