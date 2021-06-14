@@ -5,7 +5,6 @@ import portal from '../../assets/portal.png'
 import PropTypes from 'prop-types';
 
 const LocationInfo = styled.div`
-  // border: 1px solid red;
   width: 350px;
   height: 390px;
   z-index: 2;
@@ -60,7 +59,6 @@ const LocInfoContainer = styled.div`
   }
 `
 const Locations = ({ locations, favoriteInfo, theBadNews }) => {
-  console.log(locations)
   if (locations?.length) {
     return locations?.map(loc => {
       const nameClass = `loc-color-icon${loc.id}`
