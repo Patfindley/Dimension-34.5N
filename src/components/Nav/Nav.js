@@ -30,8 +30,8 @@ const BurgerContainer = styled.div`
     width: 8%;
   }
   @media only screen and (max-width: 768px) {
-    right: 0px;
-    // width: 10%;
+    right: -33px;
+    width: 10%;
   }
 `
 const Patty = styled.span`
@@ -48,7 +48,6 @@ const Patty = styled.span`
     ${BurgerContainer}:hover & {
       background-color: #A3DCF4;
       box-shadow: 0px 0px 6px 2px rgba(182,227,246,0.49)
-
     }
 `
 const NavOpen = styled.div`
@@ -70,7 +69,7 @@ const NavOpen = styled.div`
     right: 3.5%;
   }
   @media only screen and (max-width: 768px) {
-    right: 0px;
+    right: 28px;
     // width: 10%;
   }
   `
@@ -103,24 +102,27 @@ const Nav = () => {
   const [tl] = useState(gsap.timeline({paused: true}))
  
   useEffect(() => {
-    // let openWidth;
-    // if (window.innerWidth > 1080) {
-    //       console.log( '> 1080')
-    //       openWidth = '10%'
-    //     } else if (window.innerWidth < 1080) {
-    //       console.log( '< 1080')
-    //       openWidth = '12%'
-    //     }
+    console.log(window.innerWidth)
+    let resize;
+    if (window.innerWidth >= 1024) {
+      console.log(' 1024 > 12%')
+    resize = '10%'
+    console.log(resize)
+    } else if (window.innerWidth < 1024) {
+      console.log(', 1024 < 12%') 
+      resize = '16%'
+      console.log(resize)
+    }
+
   tl.to('.top', .5, {y:'-9px', rotationZ: '90', x: '30px'}, 'open')
   .to('.top', .1, { y: '9px'})
   .to('.bottom', .5, {y: '9px', rotationZ: '-90', x: '-30px'}, 'open')
   .to('.bottom', .1, { y: '-9px'})
   .to('.mid', .2, {opacity: 0})
-  .to('.burger-container', .5, {borderRadius: '10px', width: '10%', height: '95%'})
+  .to('.burger-container', .5, {borderRadius: '10px', width: `${resize}`, height: '95%'})
   .to('.top', .3, {rotationZ: '45'})
   .to('.bottom', .3, {x: '30px', rotationZ: '135'})
   .to('.nav-open', .2, {opacity: 1, pointerEvents: 'auto'})
-  // console.log(openWidth, 'openwidth')
   }, [tl])
 
   useEffect(() => {
