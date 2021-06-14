@@ -73,7 +73,9 @@ const NavOpen = styled.div`
   }
   @media only screen and (max-width: 768px) {
     right: 74px;
-    // width: 10%;
+  }
+  @media only screen and (max-width: 425px) {
+    right: 99px;
   }
   `
 const UL = styled.ul`
@@ -108,7 +110,7 @@ const Nav = () => {
     let resize;
     if (window.innerWidth >= 1025) {
     resize = '10%'
-    } else if (window.innerWidth <= 1024 && window.innerWidth > 426) {
+    } else if (window.innerWidth <= 1024 && window.innerWidth > 427) {
       resize = '18%'
     } else if (window.innerWidth <= 425) {
       resize = '25%'
