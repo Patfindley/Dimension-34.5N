@@ -22,7 +22,12 @@ const BurgerContainer = styled.div`
     width: 3%;
   }
   @media only screen and (max-width: 1440px) {
+    right: 17px;
     width: 5.5%;
+  }
+  @media only screen and (max-width: 1024px) {
+    right: -22px;
+    width: 8%;
   }
 `
 const Patty = styled.span`
@@ -55,6 +60,9 @@ const NavOpen = styled.div`
     right: -1%;
   }
   @media only screen and (max-width: 1440px) {
+    right: 2%;
+  }
+  @media only screen and (max-width: 1024px) {
     right: 1%;
   }
   `
@@ -66,6 +74,9 @@ const UL = styled.ul`
   height: 75%;
   justify-content: space-around;
   z-index: 2;
+  @media only screen and (max-width: 1024px) {
+    font-size: .5em;
+  }
 `
 const LI = styled.li`
   list-style: none;
@@ -82,8 +93,16 @@ const Nav = () => {
 
   const [burgerActive, setBurgerActive] = useState(false)
   const [tl] = useState(gsap.timeline({paused: true}))
-
+ 
   useEffect(() => {
+    // let openWidth;
+    // if (window.innerWidth > 1080) {
+    //       console.log( '> 1080')
+    //       openWidth = '10%'
+    //     } else if (window.innerWidth < 1080) {
+    //       console.log( '< 1080')
+    //       openWidth = '12%'
+    //     }
   tl.to('.top', .5, {y:'-9px', rotationZ: '90', x: '30px'}, 'open')
   .to('.top', .1, { y: '9px'})
   .to('.bottom', .5, {y: '9px', rotationZ: '-90', x: '-30px'}, 'open')
@@ -93,6 +112,7 @@ const Nav = () => {
   .to('.top', .3, {rotationZ: '45'})
   .to('.bottom', .3, {x: '30px', rotationZ: '135'})
   .to('.nav-open', .2, {opacity: 1, pointerEvents: 'auto'})
+  // console.log(openWidth, 'openwidth')
   }, [tl])
 
   useEffect(() => {
