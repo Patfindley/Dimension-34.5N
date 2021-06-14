@@ -18,6 +18,11 @@ opacity: ${({char}) => ( !char.isFavorite ?  1 : 0)};
   top: 59px;
   left: 193px;
 }
+@media only screen and (max-width: 768px) {
+  top: 65px;
+  left: 136px;
+  width: 23%;
+}
 `
 const ColorRickon = styled.img`
 position: relative;
@@ -34,6 +39,16 @@ opacity: ${({char}) => ( char.isFavorite ?  1 : 0)};
   top: 59px;
   left: 247px;
 }
+@media only screen and (max-width: 768px) {
+  top: 65px;
+  left: 194px;  
+  width: 23%;
+}
+`
+const CharImage = styled.img`
+@media only screen and (max-width: 768px) {
+  width: 250px;
+}
 `
 const CharName = styled.h1`
 text-align: center;
@@ -48,7 +63,7 @@ const Characters = ({ characters, favoriteInfo, theBadNews }) => {
           <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' char={char}/>
           <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' data-cy='blank-icon' char={char}
             onClick={event => favoriteInfo(event)}/>
-          <img src={char.image} alt={char.name} />
+          <CharImage src={char.image} alt={char.name} />
           <CharName>{char.name}</CharName>
         </div>
       )
