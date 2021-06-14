@@ -9,6 +9,9 @@ const EpisodeInfo = styled.div`
   width: 350px;
   height: 390px;
   z-index: 2;
+  @media only screen and (max-width: 768px) {
+    width: 284px;
+  }
 `
 const BlankRickonTv = styled.img`
   position: relative;
@@ -20,7 +23,8 @@ const BlankRickonTv = styled.img`
   opacity: ${({episode}) => ( !episode.isFavorite ?  1 : 0)};
   @media only screen and (max-width: 768px) {
     top: 152px;
-    right: -128px;
+    right: -129px;
+    width: 23%;
   }
   `
 const ColorRickonTv = styled.img`
@@ -33,7 +37,8 @@ const ColorRickonTv = styled.img`
   opacity: ${({episode}) => ( episode.isFavorite ?  1 : 0)};
   @media only screen and (max-width: 768px) {
     top: 152px;
-    right: -184px;
+    right: -194px;
+    width: 23%;
   }
   `
 const Tele = styled.img`
