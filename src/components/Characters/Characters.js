@@ -10,6 +10,19 @@ right: -183px;
 width: 16%;
 transition: filter .5s;
 opacity: ${({char}) => ( !char.isFavorite ?  1 : 0)};
+// @media only screen and (max-width: 2560px) {
+//   top: -212px;
+//   left: 300px;
+// }
+@media only screen and (max-width: 1440px) {
+  top: 59px;
+  left: 193px;
+}
+@media only screen and (max-width: 768px) {
+  top: 65px;
+  left: 136px;
+  width: 23%;
+}
 `
 const ColorRickon = styled.img`
 position: relative;
@@ -18,24 +31,45 @@ right: -242px;
 width: 16%;
 transition: filter .5s;
 opacity: ${({char}) => ( char.isFavorite ?  1 : 0)};
+// @media only screen and (max-width: 2560px) {
+//   top: -212px;
+//   left: 380px;
+// }
+@media only screen and (max-width: 1440px) {
+  top: 59px;
+  left: 247px;
+}
+@media only screen and (max-width: 768px) {
+  top: 65px;
+  left: 194px;  
+  width: 23%;
+}
+`
+const CharImage = styled.img`
+@media only screen and (max-width: 768px) {
+  width: 250px;
+}
+`
+const CharName = styled.h1`
+text-align: center;
 `
 
 const Characters = ({ characters, favoriteInfo, theBadNews }) => {
   if (characters?.length) {
     return characters?.map(char => {
-      const nameClass = `color-icon${char.id}`
+      const nameClass = `char-color-icon${char.id}`
       return (
         <div className='character-info' key={char.id} id={Number(char.id)}>
           <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' char={char}/>
           <BlankRickon className='blank-icon' src={blankRick} alt='blank rick icon' data-cy='blank-icon' char={char}
             onClick={event => favoriteInfo(event)}/>
-          <img src={char.image} alt={char.name} />
-          <h1>{char.name}</h1>
+          <CharImage src={char.image} alt={char.name} />
+          <CharName>{char.name}</CharName>
         </div>
       )
     })
   } else {
-    {theBadNews()}
+    theBadNews()
   }
 } 
 

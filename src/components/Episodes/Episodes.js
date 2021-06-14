@@ -9,6 +9,9 @@ const EpisodeInfo = styled.div`
   width: 350px;
   height: 390px;
   z-index: 2;
+  @media only screen and (max-width: 768px) {
+    width: 284px;
+  }
 `
 const BlankRickonTv = styled.img`
   position: relative;
@@ -18,6 +21,11 @@ const BlankRickonTv = styled.img`
   transition: filter .5s;
   z-index: 2;
   opacity: ${({episode}) => ( !episode.isFavorite ?  1 : 0)};
+  @media only screen and (max-width: 768px) {
+    top: 152px;
+    right: -129px;
+    width: 23%;
+  }
   `
 const ColorRickonTv = styled.img`
   position: relative;
@@ -27,11 +35,19 @@ const ColorRickonTv = styled.img`
   transition: filter .5s;
   z-index: 2;
   opacity: ${({episode}) => ( episode.isFavorite ?  1 : 0)};
+  @media only screen and (max-width: 768px) {
+    top: 152px;
+    right: -194px;
+    width: 23%;
+  }
   `
 const Tele = styled.img`
   position: relative;
   width: 343px;
   z-index: 1;
+  @media only screen and (max-width: 768px) {
+    width: 285px;
+  }
 `
 const EpInfoContainer = styled.div`
 position: relative;
@@ -39,16 +55,19 @@ top: -259px;
 right: -43px;
 text-align: left;
 font-family: 'Press Start 2P', cursive;
-// border: 1px solid red;
 width: 205px;
 z-index: 0;
+@media only screen and (max-width: 768px) {
+  font-size: .9em;
+  top: -219px;
+}
 `
 const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
   if (episodes.length) {
     return episodes.map(episode => {
       const splitEpisode = episode.episode.split('')
       const episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
-      const nameClass = `color-icon${episode.id}`
+      const nameClass = `ep-color-icon${episode.id}`
       return (
         <EpisodeInfo className='episode-info' key={episode.id} id={episode.id}>
           <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' episode={episode}/>

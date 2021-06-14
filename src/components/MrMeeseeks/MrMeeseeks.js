@@ -5,6 +5,9 @@ import meeseeks from '../../assets/meeseeks.png'
 const Meeseeks = styled.img`
 width: 300px;
 transform: scaleX(-1);
+@media only screen and (max-width: 425px) {
+  width: 200px;
+}
 `
 const SpeechBubble = styled.div`
 background-color: #f8f8f8;
@@ -15,8 +18,14 @@ height: 60px;
 text-align: center;
 padding: 20px;
 position: absolute;
+top: 82px;
 left: 198px;
 opacity: .8;
+@media only screen and (max-width: 425px) {
+  width: 110px;
+  font-size: .9em;
+  left: 150px;
+}
 `
 const Arrow = styled.div`
 border-style: solid;
@@ -35,7 +44,7 @@ const MrMeeseeks = () => {
       <Meeseeks src={meeseeks} alt='mr. meeseeks' className='mr-meeseeks' />
       <SpeechBubble className='speech-bubble'>
         <BubbleText className='bubble-text' >End my agony and let me help you find something to learn!</BubbleText>
-        <Arrow className='arrow bottom '></Arrow>
+        <Arrow className='arrow'></Arrow>
       </SpeechBubble>
     </div>
   )

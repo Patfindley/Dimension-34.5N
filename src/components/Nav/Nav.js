@@ -12,15 +12,30 @@ const NavMenu = styled.nav`
   margin-right: 10px;
 `
 const BurgerContainer = styled.div`
-  // display: grid;
   height: 85px;
   top: 23px;
-  // right: 2%;
   position: absolute;
   background-color: #C4EEB3;
-  // background-color: #F2C9D9; //dark pink
   border-radius: 50%;
-  box-shadow: 0px 0px 8px 2px rgba(173,211,158,0.88)
+  box-shadow: 0px 0px 8px 2px rgba(173,211,158,0.88);
+  // @media only screen and (max-width: 2560px) {
+  //   width: 3%;
+  // }
+  @media only screen and (max-width: 1440px) {
+    right: 17px;
+    width: 5.5%;
+  }
+  @media only screen and (max-width: 1024px) {
+    right: 5px;
+    width: 8%;
+  }
+  @media only screen and (max-width: 768px) {
+    // right: -33px;
+    width: 10%;
+  }
+  @media only screen and (max-width: 425px) {
+    width: 19%;
+  }
 `
 const Patty = styled.span`
   display: block;
@@ -36,7 +51,6 @@ const Patty = styled.span`
     ${BurgerContainer}:hover & {
       background-color: #A3DCF4;
       box-shadow: 0px 0px 6px 2px rgba(182,227,246,0.49)
-
     }
 `
 const NavOpen = styled.div`
@@ -48,8 +62,21 @@ const NavOpen = styled.div`
   position: absolute;
   top: 86px;
   z-index: 2;
-  // background-color: #C4EEB3;
-  // box-shadow: 0px 4px 8px 2px rgba(173,211,158,0.88)
+  // @media only screen and (max-width: 2560px) {
+  //   right: -1%;
+  // }
+  @media only screen and (max-width: 1440px) {
+    right: 2%;
+  }
+  @media only screen and (max-width: 1024px) {
+    right: 3.5%;
+  }
+  @media only screen and (max-width: 768px) {
+    right: 74px;
+  }
+  @media only screen and (max-width: 425px) {
+    right: 99px;
+  }
   `
 const UL = styled.ul`
   font-family: 'Press Start 2P', cursive;
@@ -59,6 +86,9 @@ const UL = styled.ul`
   height: 75%;
   justify-content: space-around;
   z-index: 2;
+  @media only screen and (max-width: 1024px) {
+    font-size: .5em;
+  }
 `
 const LI = styled.li`
   list-style: none;
@@ -75,14 +105,22 @@ const Nav = () => {
 
   const [burgerActive, setBurgerActive] = useState(false)
   const [tl] = useState(gsap.timeline({paused: true}))
-
+ 
   useEffect(() => {
+    let resize;
+    if (window.innerWidth >= 1025) {
+    resize = '10%'
+    } else if (window.innerWidth <= 1024 && window.innerWidth > 427) {
+      resize = '18%'
+    } else if (window.innerWidth <= 425) {
+      resize = '25%'
+    }
   tl.to('.top', .5, {y:'-9px', rotationZ: '90', x: '30px'}, 'open')
   .to('.top', .1, { y: '9px'})
   .to('.bottom', .5, {y: '9px', rotationZ: '-90', x: '-30px'}, 'open')
   .to('.bottom', .1, { y: '-9px'})
   .to('.mid', .2, {opacity: 0})
-  .to('.burger-container', .5, {borderRadius: '10px', width: '10%', height: '95%'})
+  .to('.burger-container', .5, {borderRadius: '10px', width: `${resize}`, height: '95%'})
   .to('.top', .3, {rotationZ: '45'})
   .to('.bottom', .3, {x: '30px', rotationZ: '135'})
   .to('.nav-open', .2, {opacity: 1, pointerEvents: 'auto'})
