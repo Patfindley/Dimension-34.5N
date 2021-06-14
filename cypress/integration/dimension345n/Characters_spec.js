@@ -35,6 +35,30 @@ describe('Characters', () => {
     .should('have.css', 'opacity', '1')
   })
 
-  
+  it("Should navigate you to episodes section when drop down link is clicked", () => {
+    cy.get('.burger-container').click({force: true})
+    .get('[href="/episodes"]').click({force: true})
+    .url().should('include', '/episodes')
+  })
+
+  it("Should navigate you to locations section when drop down link is clicked", () => {
+    cy.get('.burger-container').click({force: true})
+    .get('[href="/locations"]').click({force: true})
+    .url().should('include', '/locations')
+  })
+
+  it("Should navigate you back to home section when drop down link is clicked", () => {
+    cy.get('.burger-container').click({force: true})
+    .get('[href="/"]').click({force: true})
+    .url().should('include', '/')
+  })
+
+  it('Should recognize a favorite when navigating home', () => {
+    cy.get('#\\31 1 [data-cy=blank-icon]').click()
+    cy.get('.burger-container').click({force: true})
+    .get('[href="/"]').click({force: true})
+    .get('#\\31 1 [data-cy=blank-icon]')
+    .should('have.css', 'opacity', '0')
+  })
 
 })
