@@ -127,66 +127,66 @@ const App = () => {
               <div className='display-grid'>
               {favChars.length > 0 && 
                 <Characters
-                characters={favChars}
-                favoriteInfo={favoriteInfo}
-                theBadNews={theBadNews}
+                  characters={favChars}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
                 /> 
-                }
-                {favEpisodes.length > 0 && 
-                  <Episodes 
+              }
+              {favEpisodes.length > 0 && 
+                <Episodes 
                   episodes={favEpisodes}
                   favoriteInfo={favoriteInfo}
                   theBadNews={theBadNews}
                 />
-                }
-                {favLocations.length > 0 && 
-                  <Locations 
+              }
+              {favLocations.length > 0 && 
+                <Locations 
                   locations={favLocations}
                   favoriteInfo={favoriteInfo}
                   theBadNews={theBadNews}
                 />
-                }
+              }
                 </div>
                 <div className='display-grid'>
-              {foundChars.length > 0 && 
-                <Characters
-                characters={foundChars}
-                favoriteInfo={favoriteInfo}
-                theBadNews={theBadNews}
-                /> 
-                }
-                {foundEpisodes.length > 0 && 
-                  <Episodes 
-                  episodes={foundEpisodes}
-                  favoriteInfo={favoriteInfo}
-                  theBadNews={theBadNews}
-                />
-                }
-                {foundLocations.length > 0 && 
-                  <Locations 
-                  locations={foundLocations}
-                  favoriteInfo={favoriteInfo}
-                  theBadNews={theBadNews}
-                />
-                }
-                <MrMeeseeks />
+                  {foundChars.length > 0 && 
+                    <Characters
+                      characters={foundChars}
+                      favoriteInfo={favoriteInfo}
+                      theBadNews={theBadNews}
+                    /> 
+                  }
+                  {foundEpisodes.length > 0 && 
+                    <Episodes 
+                      episodes={foundEpisodes}
+                      favoriteInfo={favoriteInfo}
+                      theBadNews={theBadNews}
+                    />
+                  }
+                  {foundLocations.length > 0 && 
+                    <Locations 
+                      locations={foundLocations}
+                      favoriteInfo={favoriteInfo}
+                      theBadNews={theBadNews}
+                    />
+                  }
+                  <MrMeeseeks />
                 </div>
             </> : theBadNews()
           )} />
         <Route exact path='/characters'
-        render={() => ( 
+          render={() => ( 
             !error ?
             <div className='display-grid'>
               <Characters
-              characters={characters}
-              favoriteInfo={favoriteInfo}
-              theBadNews={theBadNews}
+                characters={characters}
+                favoriteInfo={favoriteInfo}
+                theBadNews={theBadNews}
               /> 
-          </div> : theBadNews()
+            </div> : theBadNews()
           )} />
-          <Route exact path='/episodes'
-            render={() => (
-              !error ? 
+        <Route exact path='/episodes'
+          render={() => (
+            !error ? 
               <div className='display-grid'>
                 <Episodes 
                   episodes={episodes}
