@@ -10,10 +10,10 @@ right: -183px;
 width: 16%;
 transition: filter .5s;
 opacity: ${({char}) => ( !char.isFavorite ?  1 : 0)};
-@media only screen and (max-width: 2560px) {
-  top: -212px;
-  left: 300px;
-}
+// @media only screen and (max-width: 2560px) {
+//   top: -212px;
+//   left: 300px;
+// }
 @media only screen and (max-width: 1440px) {
   top: 59px;
   left: 193px;
@@ -26,10 +26,10 @@ right: -242px;
 width: 16%;
 transition: filter .5s;
 opacity: ${({char}) => ( char.isFavorite ?  1 : 0)};
-@media only screen and (max-width: 2560px) {
-  top: -212px;
-  left: 380px;
-}
+// @media only screen and (max-width: 2560px) {
+//   top: -212px;
+//   left: 380px;
+// }
 @media only screen and (max-width: 1440px) {
   top: 59px;
   left: 247px;

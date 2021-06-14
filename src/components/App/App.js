@@ -62,40 +62,40 @@ const App = () => {
   
   const favoriteInfo = (e) => {
     if (e.target.closest('.character-info')) {
-      findTarget(e, characters, setFavChars, favChars)
+      findTarget(e, characters, setFavChars, favChars, 'char')
     }
     if (e.target.closest('.episode-info')) {
-      findTarget(e, episodes, setFavEpisodes, favEpisodes)
+      findTarget(e, episodes, setFavEpisodes, favEpisodes, 'ep')
     }
     if (e.target.closest('.location-info')) {
-      findTarget(e, locations, setFavLocations, favLocations)
+      findTarget(e, locations, setFavLocations, favLocations, 'loc')
     }
   }
 
-  const findTarget = (e, data, setter, state) => {
+  const findTarget = (e, data, setter, state, type) => {
     const targetDiv = e.target.closest('div').id
     const targetBlankIcon = e.target.closest('.blank-icon')
     const targetToFav = data.find(targ => targ.id === Number(targetDiv))
     if (!targetToFav.isFavorite) {
     targetToFav.isFavorite = true
     setter([...state, targetToFav])
-    favAnimation(targetBlankIcon, targetDiv)
+    favAnimation(targetBlankIcon, targetDiv, type)
     } else {
     targetToFav.isFavorite = false
     const removedTarget = state.filter(targ => targ.id !== Number(targetDiv))
     setter(removedTarget)
-    unfavAnimation(targetBlankIcon, targetDiv)
+    unfavAnimation(targetBlankIcon, targetDiv, type)
     }
   }
 
-  const favAnimation = (target, targetDiv) => {
+  const favAnimation = (target, targetDiv, type) => {
     gsap.to(target, .5, {opacity: 0, rotateZ: 720})
-    gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
+    gsap.to(`.${type}-color-icon${targetDiv}`, .5, {opacity: 1, rotateZ: 720})
   }
 
-  const unfavAnimation = (target, targetDiv) => {
+  const unfavAnimation = (target, targetDiv, type) => {
     gsap.to(target, .5, {opacity: 1, rotateZ: '-720'})
-    gsap.to(`.color-icon${targetDiv}`, .5, {opacity: 0, rotateZ: '-720'})
+    gsap.to(`.${type}-color-icon${targetDiv}`, .5, {opacity: 0, rotateZ: '-720'})
   }
 
   const theBadNews = () => {

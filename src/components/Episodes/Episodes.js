@@ -18,6 +18,10 @@ const BlankRickonTv = styled.img`
   transition: filter .5s;
   z-index: 2;
   opacity: ${({episode}) => ( !episode.isFavorite ?  1 : 0)};
+  @media only screen and (max-width: 768px) {
+    top: 152px;
+    right: -128px;
+  }
   `
 const ColorRickonTv = styled.img`
   position: relative;
@@ -27,11 +31,18 @@ const ColorRickonTv = styled.img`
   transition: filter .5s;
   z-index: 2;
   opacity: ${({episode}) => ( episode.isFavorite ?  1 : 0)};
+  @media only screen and (max-width: 768px) {
+    top: 152px;
+    right: -184px;
+  }
   `
 const Tele = styled.img`
   position: relative;
   width: 343px;
   z-index: 1;
+  @media only screen and (max-width: 768px) {
+    width: 285px;
+  }
 `
 const EpInfoContainer = styled.div`
 position: relative;
@@ -39,9 +50,12 @@ top: -259px;
 right: -43px;
 text-align: left;
 font-family: 'Press Start 2P', cursive;
-// border: 1px solid red;
 width: 205px;
 z-index: 0;
+@media only screen and (max-width: 768px) {
+  font-size: .9em;
+  top: -219px;
+}
 `
 const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
   if (episodes.length) {
