@@ -5,6 +5,9 @@ import meeseeks from '../../assets/meeseeks.png'
 const Meeseeks = styled.img`
 width: 300px;
 transform: scaleX(-1);
+@media only screen and (max-width: 425px) {
+  width: 200px;
+}
 `
 const SpeechBubble = styled.div`
 background-color: #f8f8f8;
@@ -18,6 +21,11 @@ position: absolute;
 top: 82px;
 left: 198px;
 opacity: .8;
+@media only screen and (max-width: 425px) {
+  width: 110px;
+  font-size: .9em;
+  left: 150px;
+}
 `
 const Arrow = styled.div`
 border-style: solid;
