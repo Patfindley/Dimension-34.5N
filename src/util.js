@@ -27,3 +27,18 @@ export const portalGun = () => {
 
 }
 
+export const cleanDirtychar = (dirtyData) => {
+  let cleanData = []
+  if (!dirtyData.length) {
+    return 
+  } else {
+    dirtyData.forEach(char => {
+      delete char.created;
+      delete char.episode;
+      delete char.type;
+      delete char.url;
+      cleanData.push(char)
+    })
+  }
+  return cleanData;
+}

@@ -85,6 +85,7 @@ const Characters = ({ characters, favoriteInfo, theBadNews }) => {
           <CharacterDetails className='character-details'>
             <CharName>{char.name}</CharName>
             <h3>{char.species}</h3>
+            <h5>{char.gender}</h5>
             <h4>Location: {char.location.name}</h4>
             <h4>Origin: {char.origin.name}</h4>
             <h5>{char.status}</h5>
