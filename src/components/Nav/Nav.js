@@ -33,6 +33,9 @@ const BurgerContainer = styled.div`
     // right: -33px;
     width: 10%;
   }
+  @media only screen and (max-width: 425px) {
+    width: 19%;
+  }
 `
 const Patty = styled.span`
   display: block;
@@ -102,18 +105,14 @@ const Nav = () => {
   const [tl] = useState(gsap.timeline({paused: true}))
  
   useEffect(() => {
-    console.log(window.innerWidth)
     let resize;
     if (window.innerWidth >= 1025) {
-      console.log(' 1024 > 12%')
     resize = '10%'
-    console.log(resize)
-    } else if (window.innerWidth <= 1024) {
-      console.log(', 1024 < 12%') 
+    } else if (window.innerWidth <= 1024 && window.innerWidth > 426) {
       resize = '18%'
-      console.log(resize)
+    } else if (window.innerWidth <= 425) {
+      resize = '25%'
     }
-
   tl.to('.top', .5, {y:'-9px', rotationZ: '90', x: '30px'}, 'open')
   .to('.top', .1, { y: '9px'})
   .to('.bottom', .5, {y: '9px', rotationZ: '-90', x: '-30px'}, 'open')
