@@ -102,8 +102,9 @@ const App = () => {
     return (
     <article className="display-bad-news">
       <h3>{error.message}</h3>
+      <h3>Morty, I need your help on an adventure. Eh, ‘need’ is a strong word. We need door stops, but a brick would work too. Anyway, Looks like the Api machine is busted.</h3>
       <Link to='/'>
-        <h4 className="back-to-home" onClick={() => this.setError({error: ''})}>
+        <h4 className="back-to-home" style={{ textDecoration: 'none', color: 'black' }} onClick={() => this.setError({error: ''})}>
           Back To Dimension 34.5 N
         </h4>
       </Link>
