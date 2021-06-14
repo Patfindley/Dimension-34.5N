@@ -29,6 +29,10 @@ const BurgerContainer = styled.div`
     right: 5px;
     width: 8%;
   }
+  @media only screen and (max-width: 768px) {
+    right: 0px;
+    // width: 10%;
+  }
 `
 const Patty = styled.span`
   display: block;
@@ -64,6 +68,10 @@ const NavOpen = styled.div`
   }
   @media only screen and (max-width: 1024px) {
     right: 3.5%;
+  }
+  @media only screen and (max-width: 768px) {
+    right: 0px;
+    // width: 10%;
   }
   `
 const UL = styled.ul`
