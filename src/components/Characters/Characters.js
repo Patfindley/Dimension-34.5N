@@ -42,7 +42,7 @@ text-align: center;
 const Characters = ({ characters, favoriteInfo, theBadNews }) => {
   if (characters?.length) {
     return characters?.map(char => {
-      const nameClass = `color-icon${char.id}`
+      const nameClass = `char-color-icon${char.id}`
       return (
         <div className='character-info' key={char.id} id={Number(char.id)}>
           <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' char={char}/>

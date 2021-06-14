@@ -26,7 +26,7 @@ const BurgerContainer = styled.div`
     width: 5.5%;
   }
   @media only screen and (max-width: 1024px) {
-    right: -22px;
+    right: 5px;
     width: 8%;
   }
 `
@@ -63,7 +63,7 @@ const NavOpen = styled.div`
     right: 2%;
   }
   @media only screen and (max-width: 1024px) {
-    right: 1%;
+    right: 3.5%;
   }
   `
 const UL = styled.ul`

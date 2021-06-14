@@ -46,7 +46,7 @@ const LocInfoContainer = styled.div`
 const Locations = ({ locations, favoriteInfo, theBadNews }) => {
   if (locations?.length) {
     return locations?.map(loc => {
-      const nameClass = `color-icon${loc.id}`
+      const nameClass = `loc-color-icon${loc.id}`
       return (
         <LocationInfo className='location-info' key={loc.id} id={loc.id}>
           <ColorRickon className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' loc={loc} />

@@ -48,7 +48,7 @@ const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
     return episodes.map(episode => {
       const splitEpisode = episode.episode.split('')
       const episodeNumber = `Season ${splitEpisode[2]}: Episode ${splitEpisode[5]}`
-      const nameClass = `color-icon${episode.id}`
+      const nameClass = `ep-color-icon${episode.id}`
       return (
         <EpisodeInfo className='episode-info' key={episode.id} id={episode.id}>
           <ColorRickonTv className={nameClass} src={colorRick} alt='color rick icon' data-cy='color-icon' episode={episode}/>
