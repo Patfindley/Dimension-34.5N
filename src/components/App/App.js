@@ -35,20 +35,20 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    if (searchResults.length > 1) {
-      if (characters.length) {
+    if (searchResults?.length > 1) {
+      if (characters?.length) {
         const charFind = characters?.filter(char => {
           return char.name.toLowerCase().includes(searchResults) 
       })
     setFoundChars(charFind)
   }
-    if (episodes.length) {
+    if (episodes?.length) {
       const epFind = episodes.filter(ep => {
         return ep.name.toLowerCase().includes(searchResults)
       })
     setFoundEpisodes(epFind)
   }
-    if (locations.length) {
+    if (locations?.length) {
       const locFind = locations.filter(loc => {
         return loc.name.toLowerCase().includes(searchResults)
       })
@@ -84,7 +84,7 @@ const App = () => {
     } else {
     targetToFav.isFavorite = false
     const removedTarget = state.filter(targ => targ.id !== Number(targetDiv))
-    setter([removedTarget])
+    setter(removedTarget)
     unfavAnimation(targetBlankIcon, targetDiv)
     }
   }

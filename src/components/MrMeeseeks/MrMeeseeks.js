@@ -32,7 +32,7 @@ const MrMeeseeks = () => {
 
   return (
     <div >
-      <Meeseeks src={meeseeks} alt='mr. meeseeks' />
+      <Meeseeks src={meeseeks} alt='mr. meeseeks' className='mr-meeseeks' />
       <SpeechBubble className='speech-bubble'>
         <BubbleText className='bubble-text' >End my agony and let me help you find something to learn!</BubbleText>
         <Arrow className='arrow bottom '></Arrow>
