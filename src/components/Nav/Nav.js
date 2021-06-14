@@ -18,9 +18,9 @@ const BurgerContainer = styled.div`
   background-color: #C4EEB3;
   border-radius: 50%;
   box-shadow: 0px 0px 8px 2px rgba(173,211,158,0.88);
-  @media only screen and (max-width: 2560px) {
-    width: 3%;
-  }
+  // @media only screen and (max-width: 2560px) {
+  //   width: 3%;
+  // }
   @media only screen and (max-width: 1440px) {
     right: 17px;
     width: 5.5%;
@@ -30,7 +30,7 @@ const BurgerContainer = styled.div`
     width: 8%;
   }
   @media only screen and (max-width: 768px) {
-    right: -33px;
+    // right: -33px;
     width: 10%;
   }
 `
@@ -59,9 +59,9 @@ const NavOpen = styled.div`
   position: absolute;
   top: 86px;
   z-index: 2;
-  @media only screen and (max-width: 2560px) {
-    right: -1%;
-  }
+  // @media only screen and (max-width: 2560px) {
+  //   right: -1%;
+  // }
   @media only screen and (max-width: 1440px) {
     right: 2%;
   }
@@ -69,7 +69,7 @@ const NavOpen = styled.div`
     right: 3.5%;
   }
   @media only screen and (max-width: 768px) {
-    right: 28px;
+    right: 74px;
     // width: 10%;
   }
   `
@@ -104,13 +104,13 @@ const Nav = () => {
   useEffect(() => {
     console.log(window.innerWidth)
     let resize;
-    if (window.innerWidth >= 1024) {
+    if (window.innerWidth >= 1025) {
       console.log(' 1024 > 12%')
     resize = '10%'
     console.log(resize)
-    } else if (window.innerWidth < 1024) {
+    } else if (window.innerWidth <= 1024) {
       console.log(', 1024 < 12%') 
-      resize = '16%'
+      resize = '18%'
       console.log(resize)
     }
 
