@@ -1,34 +1,20 @@
 const rickApi = 'https://rickandmortyapi.com/api'
 
+const ApiFetch = (endpoint) => {
+  return fetch(`${rickApi}/${endpoint}`, {mode: 'cors'})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error ('Morty! I need your help on a buuuurpp uh adventure, we have to find what dimension the character data got off to!')
+    }
+  })
+}
+
 export const portalGun = () => {
-
-  const characterRetreiverRay = fetch(`${rickApi}/character`, {mode: 'cors'})
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error ('Morty! I need your help on a buuuurpp uh adventure, we have to find what dimension the character data got off to!')
-      }
-    })
-  
-
-  const episodeRetreiverRay = fetch(`${rickApi}/episode`, {mode: 'cors'})
-    .then(response => {
-      if (response.ok) {
-        return response.json()
-      } else {
-        throw new Error ('Morty! I need your help on a buuuurpp uh adventure, we have to find what dimension the episode data got off to!')
-      }
-    })
-
-  const locationRetreiverRay = fetch(`${rickApi}/location`, {mode: 'cors'})
-    .then(response => {
-      if (response.ok) {
-        return response.json()
-      } else {
-        throw new Error ('Morty! I need your help on a buuuurpp uh adventure, we have to find what location the episode data got off to!')
-      }
-    })
+  const characterRetreiverRay = ApiFetch('character')
+  const episodeRetreiverRay = ApiFetch('episode')
+  const locationRetreiverRay = ApiFetch('location')
 
   return Promise.all([characterRetreiverRay, episodeRetreiverRay, locationRetreiverRay])
   .then(data => {
@@ -39,4 +25,50 @@ export const portalGun = () => {
     return allData
   })
 
+}
+
+export const cleanDirtychar = (dirtyData) => {
+  let cleanData = []
+  if (!dirtyData.length) {
+    return 
+  } else {
+    dirtyData.forEach(char => {
+      delete char.created;
+      delete char.episode;
+      delete char.type;
+      delete char.url;
+      cleanData.push(char)
+    })
+  }
+  return cleanData;
+}
+
+export const cleanDirtyep = (dirtyData) => {
+  let cleanData = []
+  if (!dirtyData.length) {
+    return 
+  } else {
+    dirtyData.forEach(ep => {
+      delete ep.created;
+      delete ep.characters;
+      delete ep.url;
+      cleanData.push(ep)
+    })
+  }
+  return cleanData;
+}
+
+export const cleanDirtyloc = (dirtyData) => {
+  let cleanData = []
+  if (!dirtyData.length) {
+    return 
+  } else {
+    dirtyData.forEach(loc => {
+      delete loc.created;
+      delete loc.residents;
+      delete loc.url;
+      cleanData.push(loc)
+    })
+  }
+  return cleanData;
 }

@@ -2,10 +2,9 @@ import styled from 'styled-components'
 import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
 import television from '../../assets/television.svg'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; 
 
 const EpisodeInfo = styled.div`
-  // border: 1px solid red;
   width: 350px;
   height: 390px;
   z-index: 2;
@@ -88,7 +87,13 @@ const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
 }
 
 Episodes.propTypes = {
-  episodes: PropTypes.arrayOf(PropTypes.object),
+  episodes: PropTypes.arrayOf(PropTypes.shape({
+    air_date: PropTypes.string,
+    characters: PropTypes.arrayOf(PropTypes.string),
+    episode: PropTypes.string,
+    id: PropTypes.number,
+    name: PropTypes.string
+  })),
   favoriteInfo: PropTypes.func,
   theBadNews: PropTypes.func
 }

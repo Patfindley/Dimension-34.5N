@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import { gsap } from "gsap"
-import { portalGun } from '../../util'
+import { portalGun, cleanDirtychar, cleanDirtyep, cleanDirtyloc } from '../../util'
 import Nav from '../Nav/Nav'
 import SearchBar from '../SearchBar/SearchBar'
 import Characters from '../Characters/Characters'
@@ -26,9 +26,9 @@ const App = () => {
   useEffect(() => {
     portalGun()
     .then(data => {
-      setCharacters(data.characterRetreiverRay.results);
-      setEpisodes(data.episodeRetreiverRay.results);
-      setLocations(data.locationRetreiverRay.results);
+      setCharacters(cleanDirtychar(data.characterRetreiverRay.results));
+      setEpisodes(cleanDirtyep(data.episodeRetreiverRay.results));
+      setLocations(cleanDirtyloc(data.locationRetreiverRay.results));
     })
     .catch(error => setError({error}))
   }, [])
@@ -37,19 +37,27 @@ const App = () => {
     if (searchResults?.length > 1) {
       if (characters?.length) {
         const charFind = characters.filter(char => {
-          return char.name.toLowerCase().includes(searchResults) 
+          return char.name.toLowerCase().includes(searchResults) ||
+          char.gender.toLowerCase().includes(searchResults) ||
+          char.location.name.toLowerCase().includes(searchResults) ||
+          char.origin.name.toLowerCase().includes(searchResults) ||
+          char.species.toLowerCase().includes(searchResults) ||
+          char.status.toLowerCase().includes(searchResults)
       })
     setFoundChars(charFind)
   }
     if (episodes?.length) {
       const epFind = episodes.filter(ep => {
-        return ep.name.toLowerCase().includes(searchResults)
+        return ep.name.toLowerCase().includes(searchResults) ||
+        ep.air_date.toLowerCase().includes(searchResults)
       })
     setFoundEpisodes(epFind)
   }
     if (locations?.length) {
       const locFind = locations.filter(loc => {
-        return loc.name.toLowerCase().includes(searchResults)
+        return loc.name.toLowerCase().includes(searchResults) ||
+        loc.type.toLowerCase().includes(searchResults) ||
+        loc.dimension.toLowerCase().includes(searchResults)
       })
     setFoundLocations(locFind)
   }
@@ -102,8 +110,9 @@ const App = () => {
     return (
     <article className="display-bad-news">
       <h3>{error.message}</h3>
+      <h3>Morty, I need your help on an adventure. Eh, ‘need’ is a strong word. We need door stops, but a brick would work too. Anyway, Looks like the Api machine is busted.</h3>
       <Link to='/'>
-        <h4 className="back-to-home" onClick={() => this.setError({error: ''})}>
+        <h4 className="back-to-home" style={{ textDecoration: 'none', color: 'black' }} onClick={() => this.setError({error: ''})}>
           Back To Dimension 34.5 N
         </h4>
       </Link>
@@ -127,66 +136,66 @@ const App = () => {
               <div className='display-grid'>
               {favChars.length > 0 && 
                 <Characters
-                characters={favChars}
-                favoriteInfo={favoriteInfo}
-                theBadNews={theBadNews}
+                  characters={favChars}
+                  favoriteInfo={favoriteInfo}
+                  theBadNews={theBadNews}
                 /> 
-                }
-                {favEpisodes.length > 0 && 
-                  <Episodes 
+              }
+              {favEpisodes.length > 0 && 
+                <Episodes 
                   episodes={favEpisodes}
                   favoriteInfo={favoriteInfo}
                   theBadNews={theBadNews}
                 />
-                }
-                {favLocations.length > 0 && 
-                  <Locations 
+              }
+              {favLocations.length > 0 && 
+                <Locations 
                   locations={favLocations}
                   favoriteInfo={favoriteInfo}
                   theBadNews={theBadNews}
                 />
-                }
+              }
                 </div>
                 <div className='display-grid'>
-              {foundChars.length > 0 && 
-                <Characters
-                characters={foundChars}
-                favoriteInfo={favoriteInfo}
-                theBadNews={theBadNews}
-                /> 
-                }
-                {foundEpisodes.length > 0 && 
-                  <Episodes 
-                  episodes={foundEpisodes}
-                  favoriteInfo={favoriteInfo}
-                  theBadNews={theBadNews}
-                />
-                }
-                {foundLocations.length > 0 && 
-                  <Locations 
-                  locations={foundLocations}
-                  favoriteInfo={favoriteInfo}
-                  theBadNews={theBadNews}
-                />
-                }
-                <MrMeeseeks />
+                  {foundChars.length > 0 && 
+                    <Characters
+                      characters={foundChars}
+                      favoriteInfo={favoriteInfo}
+                      theBadNews={theBadNews}
+                    /> 
+                  }
+                  {foundEpisodes.length > 0 && 
+                    <Episodes 
+                      episodes={foundEpisodes}
+                      favoriteInfo={favoriteInfo}
+                      theBadNews={theBadNews}
+                    />
+                  }
+                  {foundLocations.length > 0 && 
+                    <Locations 
+                      locations={foundLocations}
+                      favoriteInfo={favoriteInfo}
+                      theBadNews={theBadNews}
+                    />
+                  }
+                  <MrMeeseeks />
                 </div>
             </> : theBadNews()
           )} />
         <Route exact path='/characters'
-        render={() => ( 
+          render={() => ( 
             !error ?
             <div className='display-grid'>
               <Characters
-              characters={characters}
-              favoriteInfo={favoriteInfo}
-              theBadNews={theBadNews}
+                characters={characters}
+                favoriteInfo={favoriteInfo}
+                theBadNews={theBadNews}
               /> 
-          </div> : theBadNews()
+            </div> : theBadNews()
           )} />
-          <Route exact path='/episodes'
-            render={() => (
-              !error ? 
+        <Route exact path='/episodes'
+          render={() => (
+            !error ? 
               <div className='display-grid'>
                 <Episodes 
                   episodes={episodes}
