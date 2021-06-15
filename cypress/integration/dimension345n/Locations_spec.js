@@ -10,6 +10,21 @@ describe('Locations', () => {
     cy.url().should('include', '/locations')
   })
 
+  it("should show error if fetch fails", () => {
+    cy.fixture('locations.json')
+    .then(data => {
+      cy.intercept('GET', 'https://rickandmortyapi.com/api/location', {
+        statusCode: 404,
+        delay: 100,
+        body: data
+      })
+    })
+    cy.visit('http://localhost:3000/')
+    cy.get('.burger-container').click()
+    .get('[href="/locations"]').click()
+    .get('.back-to-home')
+  })
+
   it('Should display location info', () => {
     cy.get('#\\36 ')
   })
