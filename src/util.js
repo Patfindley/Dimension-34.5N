@@ -56,3 +56,18 @@ export const cleanDirtyep = (dirtyData) => {
   }
   return cleanData;
 }
+
+export const cleanDirtyloc = (dirtyData) => {
+  let cleanData = []
+  if (!dirtyData.length) {
+    return 
+  } else {
+    dirtyData.forEach(loc => {
+      delete loc.created;
+      delete loc.residents;
+      delete loc.url;
+      cleanData.push(loc)
+    })
+  }
+  return cleanData;
+}

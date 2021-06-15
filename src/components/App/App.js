@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import { gsap } from "gsap"
-import { portalGun, cleanDirtychar, cleanDirtyep } from '../../util'
+import { portalGun, cleanDirtychar, cleanDirtyep, cleanDirtyloc } from '../../util'
 import Nav from '../Nav/Nav'
 import SearchBar from '../SearchBar/SearchBar'
 import Characters from '../Characters/Characters'
@@ -28,7 +28,7 @@ const App = () => {
     .then(data => {
       setCharacters(cleanDirtychar(data.characterRetreiverRay.results));
       setEpisodes(cleanDirtyep(data.episodeRetreiverRay.results));
-      setLocations(data.locationRetreiverRay.results);
+      setLocations(cleanDirtyloc(data.locationRetreiverRay.results));
     })
     .catch(error => setError({error}))
   }, [])
@@ -49,7 +49,9 @@ const App = () => {
   }
     if (locations?.length) {
       const locFind = locations.filter(loc => {
-        return loc.name.toLowerCase().includes(searchResults)
+        return loc.name.toLowerCase().includes(searchResults) ||
+        loc.type.toLowerCase().includes(searchResults) ||
+        loc.dimension.toLowerCase().includes(searchResults)
       })
     setFoundLocations(locFind)
   }

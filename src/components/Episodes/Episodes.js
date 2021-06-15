@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import blankRick from '../../assets/blank-rick-icon.png';
 import colorRick from '../../assets/fill-rick-icon.png';
 import television from '../../assets/television.svg'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; 
 
 const EpisodeInfo = styled.div`
   width: 350px;
@@ -62,6 +62,7 @@ z-index: 0;
 }
 `
 const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
+  console.log(episodes)
   if (episodes.length) {
     return episodes.map(episode => {
       const splitEpisode = episode.episode.split('')
