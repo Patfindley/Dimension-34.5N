@@ -73,7 +73,6 @@ text-align: center;
 `
 
 const Characters = ({ characters, favoriteInfo, theBadNews }) => {
-  console.log(characters)
   if (characters?.length) {
     return characters?.map(char => {
       const nameClass = `char-color-icon${char.id}`

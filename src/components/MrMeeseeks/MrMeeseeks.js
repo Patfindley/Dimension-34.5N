@@ -17,10 +17,11 @@ width: 180px;
 height: 60px;
 text-align: center;
 padding: 20px;
-position: absolute;
-top: 82px;
-left: 198px;
+position: relative;
+bottom: 500px;
+left: 176px;
 opacity: .8;
+z-index: 2;
 @media only screen and (max-width: 425px) {
   width: 110px;
   font-size: .9em;
