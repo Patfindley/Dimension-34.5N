@@ -1,11 +1,12 @@
 # Why's Rick a pickle?
 
 #### Overview
-This is an application designed for that person who has finally decided to catch up on Rick and Morty, and be on the inside of all of the jokes. Do Mr. Meeseeks a favor and let him help you find some information. Try searching for a character, a characters details, an episode by title, or date, or Location in the universe, or by the drop down divided into categories. Then favorite it, Wubba Lubba Dub-Dub!
+This is an application designed for that person who has finally decided to catch up on Rick and Morty, and be on the inside of all of the jokes. Do Mr. Meeseeks a favor and let him help you find some information. Try searching for a character, a characters details, episode by title, or date, or Location in the universe. If you want to just browse and click stuff, try the categories in the drop down menu, pick a category, find some information, then favorite it! Wubba Lubba Dub-Dub!
 
 ![Rick and Morty App Gif](https://media.giphy.com/media/6kQcLG0duEuNYeKVRx/giphy.gif)
 
 The Objective for this app was to target a niche audience, and build an application for them utilizing a free API, and React.
+
 #### Learning Goals
 * Solidify React, React-Router, and React Hooks
 * Further experiment with GSAP
