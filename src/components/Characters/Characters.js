@@ -4,6 +4,7 @@ import colorRick from '../../assets/fill-rick-icon.png';
 import PropTypes from 'prop-types';
 const CharacterInfo = styled.div`
 text-align: center;
+height: 529px;
 `
 const BlankRickon = styled.img`
 position: relative;
