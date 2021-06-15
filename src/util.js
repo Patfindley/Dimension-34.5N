@@ -50,6 +50,7 @@ export const cleanDirtyep = (dirtyData) => {
   } else {
     dirtyData.forEach(ep => {
       delete ep.created;
+      delete ep.characters;
       delete ep.url;
       cleanData.push(ep)
     })

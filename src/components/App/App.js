@@ -37,13 +37,19 @@ const App = () => {
     if (searchResults?.length > 1) {
       if (characters?.length) {
         const charFind = characters.filter(char => {
-          return char.name.toLowerCase().includes(searchResults) 
+          return char.name.toLowerCase().includes(searchResults) ||
+          char.gender.toLowerCase().includes(searchResults) ||
+          char.location.name.toLowerCase().includes(searchResults) ||
+          char.origin.name.toLowerCase().includes(searchResults) ||
+          char.species.toLowerCase().includes(searchResults) ||
+          char.status.toLowerCase().includes(searchResults)
       })
     setFoundChars(charFind)
   }
     if (episodes?.length) {
       const epFind = episodes.filter(ep => {
-        return ep.name.toLowerCase().includes(searchResults)
+        return ep.name.toLowerCase().includes(searchResults) ||
+        ep.air_date.toLowerCase().includes(searchResults)
       })
     setFoundEpisodes(epFind)
   }

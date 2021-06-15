@@ -62,7 +62,6 @@ z-index: 0;
 }
 `
 const Episodes = ({ episodes, favoriteInfo, theBadNews }) => {
-  console.log(episodes)
   if (episodes.length) {
     return episodes.map(episode => {
       const splitEpisode = episode.episode.split('')
