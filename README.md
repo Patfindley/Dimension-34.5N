@@ -13,7 +13,7 @@ The Objective for this app was to target a niche audience, and build an applicat
 
 
 #### Creator
-[Pat Findley](https://github.com/Patfindley "Pat's GitHub")
+[Pat Findley](https://github.com/Patfindley "Pat Findley GitHub")
 
 
 #### Technology
