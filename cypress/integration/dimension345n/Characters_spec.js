@@ -10,6 +10,21 @@ describe('Characters', () => {
     cy.url().should('include', '/characters')
   })
 
+  it("should show error if fetch fails", () => {
+    cy.fixture('characters.json')
+    .then(data => {
+      cy.intercept('GET', 'https://rickandmortyapi.com/api/character', {
+        statusCode: 404,
+        delay: 100,
+        body: data
+      })
+    })
+    cy.visit('http://localhost:3000/')
+    cy.get('.burger-container').click()
+    .get('[href="/characters"]').click()
+    .get('.back-to-home')
+  })
+
   it('Should display character image', () => {
     cy.get('[src="https://rickandmortyapi.com/api/character/avatar/11.jpeg"]')
   })
