@@ -15,7 +15,7 @@ describe('App', () => {
   it("should have a Mr. Meeseeks image and text bubble", () => {
     cy.get('.mr-meeseeks')
     .get('.bubble-text-one')
-    .contains('End my agony and let me help you find something to learn!')
+    
   })
 
   it('Should perform ridiculous opening animation when hamburger is clicked', () => {
