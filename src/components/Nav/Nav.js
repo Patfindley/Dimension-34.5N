@@ -22,7 +22,7 @@ const BurgerContainer = styled.div`
   //   width: 3%;
   // }
   @media only screen and (max-width: 1440px) {
-    right: 17px;
+    right: 0px;
     width: 5.5%;
   }
   @media only screen and (max-width: 1024px) {
