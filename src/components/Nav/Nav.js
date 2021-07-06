@@ -13,6 +13,7 @@ const NavMenu = styled.nav`
 `
 const BurgerContainer = styled.div`
   height: 85px;
+  width: 80px;
   top: 23px;
   position: absolute;
   background-color: #C4EEB3;
@@ -22,16 +23,13 @@ const BurgerContainer = styled.div`
   //   width: 3%;
   // }
   @media only screen and (max-width: 1440px) {
-    right: 0px;
-    width: 5.5%;
+    right: 0px; 
+    width: 6%;
   }
   @media only screen and (max-width: 1024px) {
-    right: 5px;
-    width: 8%;
+    right: 5px; 
   }
   @media only screen and (max-width: 768px) {
-    // right: -33px;
-    width: 10%;
   }
   @media only screen and (max-width: 425px) {
     width: 19%;
@@ -66,7 +64,7 @@ const NavOpen = styled.div`
   //   right: -1%;
   // }
   @media only screen and (max-width: 1440px) {
-    right: 2%;
+    right: 3%;
   }
   @media only screen and (max-width: 1024px) {
     right: 3.5%;
@@ -109,7 +107,7 @@ const Nav = () => {
   useEffect(() => {
     let resize;
     if (window.innerWidth >= 1025) {
-    resize = '10%'
+    resize = '170px'
     } else if (window.innerWidth <= 1024 && window.innerWidth > 427) {
       resize = '18%'
     } else if (window.innerWidth <= 425) {
