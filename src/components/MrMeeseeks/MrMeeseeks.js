@@ -51,9 +51,9 @@ const MrMeeseeks = () => {
 
   useEffect(() => {
     tl.to('.bubble-text-one', 0, {visibility: 'hidden'})
-    .to('.bubble-text-two', 2.5, {visibility: 'visible'})
+    .to('.bubble-text-two', 3.5, {visibility: 'visible'})
     .to('.bubble-text-two', 0, {visibility: 'hidden'})
-    .to('.bubble-text-one', 2.5, {visibility: 'visible'})
+    .to('.bubble-text-one', 3.5, {visibility: 'visible'})
   }, [tl])
 
   return (
